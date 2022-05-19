@@ -73,7 +73,7 @@ public class Menu : MonoBehaviour
 
 	public void LeaderboardScene()
 	{
-		SceneManager.LoadScene("Leaderboard");
+		SceneManager.LoadScene("LeaderBoard");
 	}
 
 	public void DemoScene()
