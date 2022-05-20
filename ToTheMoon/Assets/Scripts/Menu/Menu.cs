@@ -76,11 +76,6 @@ public class Menu : MonoBehaviour
 		SceneManager.LoadScene("LeaderBoard");
 	}
 
-	public void DemoScene()
-	{
-		SceneManager.LoadScene("DemoScene");
-	}
-
 	public void GameScene()
 	{
 		SceneManager.LoadScene("Game");
