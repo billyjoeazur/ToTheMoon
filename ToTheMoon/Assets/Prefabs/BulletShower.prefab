@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7110479707411009509}
   - component: {fileID: 7110479707411009508}
   m_Layer: 0
-  m_Name: BulletRicochet
+  m_Name: BulletShower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

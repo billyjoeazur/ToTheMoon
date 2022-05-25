@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletRicochet : MonoBehaviour
+public class BulletShower : MonoBehaviour
 {
     Rigidbody2D rb;
     float xForce;
@@ -14,8 +14,8 @@ public class BulletRicochet : MonoBehaviour
     {
         //ricochet
         rb = GetComponent<Rigidbody2D>();
-        xForce = Random.Range(-350f, 350f);
-        yForce = Random.Range(350f, 450f);
+        xForce = Random.Range(-3050f, 3050f);
+        yForce = Random.Range(3050f, 4050f);
         force = new Vector2(xForce, yForce);
 
         rb.AddForce(force);

@@ -191,7 +191,7 @@ public class FacebookLogin : MonoBehaviour
 		playerData.SavePlayerData(0, 0, 0, 0);
 		playerData.SetPlayerHighestScore(0);
 
-		StartCoroutine(LoadStartScene(5f));
+		StartCoroutine(LoadStartScene(3f));
 
 	}
 

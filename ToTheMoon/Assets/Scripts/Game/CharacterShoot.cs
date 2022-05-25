@@ -11,14 +11,14 @@ public class CharacterShoot : MonoBehaviour
     CharacterBullet[] bulletPrefab;
 
     [SerializeField]
-    BulletRicochet ricochetPrefab;
+    BulletShower showerPrefab;
 
 
     float Timer = 2;
 
     void Start()
     {
-        
+        PlayerPrefs.SetString("CurrentGun", "gun3");
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class CharacterShoot : MonoBehaviour
             {
                 CharacterBullet bulletGO = Instantiate(bulletPrefab[0]);
                 bulletGO.transform.position = spawnspot.position;
-                bulletGO.Init(20f, 1f);
+                bulletGO.Init(100f, 1f);
                 Timer = 0.3f;
             }
             else if(PlayerPrefs.GetString("MyGun") == "gun2")
@@ -50,7 +50,7 @@ public class CharacterShoot : MonoBehaviour
                 //bulletGO.transform.position = spawnspot.position;
                 //bulletGO.Init(20f, 1f);
                 
-                BulletRicochet scatter = Instantiate(ricochetPrefab, transform.position, Quaternion.identity);
+                BulletShower scatter = Instantiate(showerPrefab, transform.position, Quaternion.identity);
                 Timer = 0.1f;
             }
             else if (PlayerPrefs.GetString("MyGun") == "gun4")

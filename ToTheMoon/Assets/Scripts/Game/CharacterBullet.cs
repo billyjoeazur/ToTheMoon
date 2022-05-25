@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterBullet : MonoBehaviour
 {
-    float speed = 6;
+    float speed = 1;
 
     void Start()
     {
@@ -15,7 +15,7 @@ public class CharacterBullet : MonoBehaviour
     {
         transform.Translate(Vector2.up * speed * Time.deltaTime);
 
-        if (transform.position.y >= 20)
+        if (transform.position.y >= 70)
         {
             Destroy(gameObject);
         }
