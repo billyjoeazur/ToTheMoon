@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         maxHealth = playerData._maxHealth;
+        PlayerPrefs.SetInt("BossLevel", 0);
     }
 
     void Start()
