@@ -18,7 +18,7 @@ public class CharacterShoot : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetString("CurrentGun", "gun3");
+        //PlayerPrefs.SetString("CurrentGun", "gun3");
     }
 
     void Update()

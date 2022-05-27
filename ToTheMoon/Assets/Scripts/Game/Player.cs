@@ -12,10 +12,15 @@ public class Player : MonoBehaviour
     public float currentHealth;
     public HealthBar healthBar;
 
+    public Text coinsText;
+    int currentCoin = 0;
+    public Text scoreText;
+
     void Awake()
     {
         maxHealth = playerData._maxHealth;
         PlayerPrefs.SetInt("BossLevel", 0);
+        PlayerPrefs.SetInt("CurrentScore", 0);
     }
 
     void Start()
@@ -26,18 +31,35 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        StartCoroutine(Damage(3f));
-    }
-
-    void TakeDamage()
-    {
-        currentHealth -= 0.1f;
+        coinsText.text = currentCoin.ToString();
+        scoreText.text = PlayerPrefs.GetInt("CurrentScore").ToString();
         healthBar.SetHealth(currentHealth);
     }
 
-    IEnumerator Damage(float waitTime)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        yield return new WaitForSeconds(waitTime);
-        TakeDamage();
+        if(other.gameObject.tag == "Coin")
+        {
+            //set current coins
+            currentCoin += 5;
+
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.tag == "Enemy")
+        {
+            currentHealth -= 10;
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.tag == "EnemyBullet")
+        {
+            currentHealth -= 20;
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.tag == "Boss")
+        {
+            currentHealth -= 30;
+            Destroy(other.gameObject);
+        }
     }
+
 }

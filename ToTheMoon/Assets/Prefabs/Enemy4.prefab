@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6182166879540419937}
   - component: {fileID: 5135419809747459851}
   m_Layer: 0
-  m_Name: Canvas (1)
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,9 +184,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 4
+  m_MaxValue: 200
   m_WholeNumbers: 1
-  m_Value: 4
+  m_Value: 200
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -205,16 +205,16 @@ MonoBehaviour:
   slider: {fileID: 4711630594869505228}
   gradient:
     serializedVersion: 2
-    key0: {r: 0.7607844, g: 0.08235294, b: 0.1137255, a: 1}
-    key1: {r: 1, g: 0.93846154, b: 0, a: 1}
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
     key2: {r: 0, g: 1, b: 0.0009315014, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 21823
-    ctime1: 43646
+    ctime0: 0
+    ctime1: 65535
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 1
-    m_NumColorKeys: 3
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 851892881078428051}
 --- !u!1 &4280559286672740605
@@ -246,9 +246,10 @@ GameObject:
   - component: {fileID: 4280559286672740600}
   - component: {fileID: 4280559286672740603}
   - component: {fileID: 4280559286672740602}
+  - component: {fileID: -5357250205972063449}
   m_Layer: 0
   m_Name: Enemy4
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,6 +372,23 @@ MonoBehaviour:
   accelerationTime: 8
   maxSpeed: 12
   downSpeed: 8
+--- !u!114 &-5357250205972063449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4280559286672740605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c3e1c47f045754d924006e33be9325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
+  bulletShower: {fileID: 7110479707411009508, guid: e4de477278fc45e428e38ebea7c8aaf4, type: 3}
+  maxHealth: 200
+  currentHealth: 0
+  healthBar: {fileID: 5904740759375563896}
 --- !u!1 &4970768170877684303
 GameObject:
   m_ObjectHideFlags: 0

@@ -152,7 +152,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 658662767}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &13602718
 MonoBehaviour:
@@ -207,7 +207,7 @@ RectTransform:
   m_Children:
   - {fileID: 1289593066}
   m_Father: {fileID: 658662767}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -518,9 +518,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 4
+  m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 4
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -751,7 +751,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 658662767}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &562106188
 MonoBehaviour:
@@ -909,7 +909,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 658662767}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &607960046
 MonoBehaviour:
@@ -932,6 +932,52 @@ MonoBehaviour:
   startTimeBtwSpawn: 8
   decreaseTime: 0.1
   minimumTime: 5
+--- !u!1 &627211347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 627211348}
+  - component: {fileID: 627211349}
+  m_Layer: 0
+  m_Name: ShootSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &627211348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627211347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 658662767}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &627211349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627211347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d428ca65568dbd54c88801bbe4bb3b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnspot: {fileID: 627211348}
+  bulletPrefab: {fileID: 8665015864730222198, guid: 45d42281b42507648a662e2a9353a7dc, type: 3}
+  shootInterval: 1.2
 --- !u!1 &635422161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,6 +1163,7 @@ GameObject:
   - component: {fileID: 658662770}
   - component: {fileID: 658662769}
   - component: {fileID: 658662768}
+  - component: {fileID: 658662771}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -1186,6 +1233,7 @@ Transform:
   m_LocalPosition: {x: -0, y: 38.2, z: 90}
   m_LocalScale: {x: 14, y: 14, z: 1}
   m_Children:
+  - {fileID: 627211348}
   - {fileID: 562106187}
   - {fileID: 13602717}
   - {fileID: 1923174444}
@@ -1246,6 +1294,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &658662771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658662765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c3e1c47f045754d924006e33be9325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
+  bulletShower: {fileID: 7110479707411009508, guid: e4de477278fc45e428e38ebea7c8aaf4, type: 3}
+  maxHealth: 1500
+  currentHealth: 0
+  healthBar: {fileID: 1289593067}
 --- !u!1 &763434601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1340,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 658662767}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &763434603
 MonoBehaviour:
@@ -1314,7 +1379,7 @@ GameObject:
   - component: {fileID: 818880538}
   m_Layer: 0
   m_Name: Char
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1395,7 +1460,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 2.03}
@@ -1448,9 +1513,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 5609275764425747696, guid: f54ac11a10a7d4740b7b031f8483826e, type: 3}
-  maxHealth: 0
+  maxHealth: 1000
   currentHealth: 0
   healthBar: {fileID: 415423107}
+  coinsText: {fileID: 647604865}
+  scoreText: {fileID: 430146842}
 --- !u!1 &916102484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,16 +1713,16 @@ MonoBehaviour:
   slider: {fileID: 1289593068}
   gradient:
     serializedVersion: 2
-    key0: {r: 0.7607844, g: 0.08235294, b: 0.1137255, a: 1}
-    key1: {r: 1, g: 0.93846154, b: 0, a: 1}
+    key0: {r: 1, g: 0, b: 0, a: 1}
+    key1: {r: 1, g: 0, b: 0, a: 1}
     key2: {r: 0, g: 1, b: 0.0009315014, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 21823
-    ctime1: 43646
+    ctime0: 0
+    ctime1: 65535
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -1671,7 +1738,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 1
-    m_NumColorKeys: 3
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 1078009358}
 --- !u!114 &1289593068
@@ -1719,9 +1786,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 4
+  m_MaxValue: 1500
   m_WholeNumbers: 1
-  m_Value: 4
+  m_Value: 1500
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2012,7 +2079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1638491173}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: BossSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2315,7 +2382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 658662767}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1923174445
 MonoBehaviour:
