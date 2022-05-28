@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - EnemyBullet
   - Boss
+  - Diamond
   layers:
   - Default
   - TransparentFX

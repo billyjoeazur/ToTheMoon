@@ -389,6 +389,9 @@ MonoBehaviour:
   maxHealth: 200
   currentHealth: 0
   healthBar: {fileID: 5904740759375563896}
+  coinToDrop: 4
+  scoreToAdd: 20
+  xpToAdd: 20
 --- !u!1 &4970768170877684303
 GameObject:
   m_ObjectHideFlags: 0

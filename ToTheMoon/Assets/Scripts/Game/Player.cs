@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     public Text coinsText;
     int currentCoin = 0;
+    public Text diamondText;
+    int currentDiamond = 0;
     public Text scoreText;
 
     void Awake()
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         coinsText.text = currentCoin.ToString();
+        diamondText.text = currentDiamond.ToString();
         scoreText.text = PlayerPrefs.GetInt("CurrentScore").ToString();
         healthBar.SetHealth(currentHealth);
     }
@@ -42,6 +45,13 @@ public class Player : MonoBehaviour
         {
             //set current coins
             currentCoin += 5;
+
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.tag == "Diamond")
+        {
+            //set current coins
+            currentDiamond += 1;
 
             Destroy(other.gameObject);
         }
@@ -58,7 +68,7 @@ public class Player : MonoBehaviour
         else if(other.gameObject.tag == "Boss")
         {
             currentHealth -= 30;
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
         }
     }
 

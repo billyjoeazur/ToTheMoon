@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class BossStats : MonoBehaviour
 {
+    public BossStats instance;
+
     int c = 0;
     [SerializeField]
     Coin coin;
+    [SerializeField]
+    Coin diamond;
     [SerializeField]
     BulletShower bulletShower;
 
     public float maxHealth;
     public float currentHealth;
     public HealthBar healthBar;
+    public int coinToDrop;
+    public int scoreToAdd;
+    public int xpToAdd;
+
+    public BossSpawner spawnBoss;
     
+    private void Awake() 
+    {
+        spawnBoss = FindObjectOfType<BossSpawner>().GetComponent<BossSpawner>();
+        
+    }
+
     void Start()
     {
         //maxHealth = 1500f;
         currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     private void Update()
@@ -26,19 +42,32 @@ public class BossStats : MonoBehaviour
         if (currentHealth <= 0)
         {
             //add score
-            int score = PlayerPrefs.GetInt("CurrentScore") + 100;
+            int score = PlayerPrefs.GetInt("CurrentScore") + scoreToAdd;
             PlayerPrefs.SetInt("CurrentScore", score);
             //add xp
-            int xp = PlayerPrefs.GetInt("CurrentXP") + 20;
+            int xp = PlayerPrefs.GetInt("CurrentXP") + xpToAdd;
             PlayerPrefs.SetInt("CurrentXP", xp);
-            //drop 5 coins
-            while (c < 10)
+            //drop coins
+            while (c < coinToDrop)
             {
                 Coin drop = Instantiate(coin, transform.position, Quaternion.identity);
                 c++;
             }
+            if(this.gameObject.tag == "Boss")
+            {
+                //diamond drop
+                int rand = Random.Range(0, 99);
+                if(rand <= 49) //drop chance
+                {
+                    Coin drop = Instantiate(diamond, transform.position, Quaternion.identity);
+                    
+                }
+                spawnBoss.SpawnBoss();
+            }
+
+
             Destroy(gameObject);       // destroy the boss
-            PlayerPrefs.SetInt("BossDestroyed", 1);
+            //PlayerPrefs.SetInt("BossDestroyed", 1);
         }
     }
 
