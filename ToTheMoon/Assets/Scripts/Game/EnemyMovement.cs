@@ -27,7 +27,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
         transform.Translate(Vector2.down * downSpeed * Time.deltaTime);
-        Destroy(gameObject, 7f);
+        Destroy(gameObject, 14f);
 
     }
 
