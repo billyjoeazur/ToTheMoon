@@ -15,6 +15,11 @@ public class BossShoot : MonoBehaviour
     [SerializeField]
     float shootInterval;
 
+    private void Awake() 
+    {
+        //StartCoroutine(CanShoot(15));
+    }
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -34,4 +39,11 @@ public class BossShoot : MonoBehaviour
         EnemyBullet bulletGO = Instantiate (bulletPrefab, spawnspot.position, Quaternion.identity) as EnemyBullet;
         bulletGO.Init(20f, 1f);
     }
+
+    // IEnumerator CanShoot(float waitTime)
+    // {
+    //     yield return new WaitForSeconds(waitTime);
+        
+        
+    // }
 }

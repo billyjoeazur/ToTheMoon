@@ -9,10 +9,19 @@ public class BossMovement : MonoBehaviour
     public float accelerationTime = 2f;
     public float maxSpeed = 3f;
     Rigidbody2D rb;
+    private GameObject[] childList;
+    
+    void Awake()
+    {
+        childList = new GameObject[transform.childCount];
+        for (int i = 0; i < transform.childCount; i++)
+            childList[i] = transform.GetChild(i).gameObject;
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(CanShoot(15));
     }
 
     void Update()
@@ -61,8 +70,18 @@ public class BossMovement : MonoBehaviour
         {
             transform.Translate(movement);
         }
+    }
 
-
-
+    IEnumerator CanShoot(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        childList[0].gameObject.SetActive(true);
+        childList[1].gameObject.SetActive(false);
+        childList[2].gameObject.SetActive(false);
+        childList[3].gameObject.SetActive(false);
+        childList[4].gameObject.SetActive(false);
+        childList[5].gameObject.SetActive(false);
+        childList[6].gameObject.SetActive(true);
+        this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
     }
 }

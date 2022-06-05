@@ -6,10 +6,10 @@ public class EnemyMovement : MonoBehaviour
 {
     private float timeLeft;
     private Vector2 movement;
-    public float accelerationTime = 2f;
-    public float maxSpeed = 3f;
+    public float accelerationTime;
+    public float maxSpeed;
     Rigidbody2D rb;
-	public float downSpeed = 2;
+	public float downSpeed;
 
     void Start()
     {

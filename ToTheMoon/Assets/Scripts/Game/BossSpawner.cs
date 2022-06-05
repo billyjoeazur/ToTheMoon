@@ -6,7 +6,7 @@ public class BossSpawner : MonoBehaviour
 {
     public static BossSpawner instance;
     public GameObject[] boss;
-
+    int bossLevel = 0;
     public BossStats bossStats;
 
     private void Awake() 
@@ -23,14 +23,15 @@ public class BossSpawner : MonoBehaviour
     public void SpawnBoss()
     {
         StartCoroutine(CountBeforeBoss(4));
+
     }
 
     IEnumerator CountBeforeBoss(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        int rand = Random.Range(0, boss.Length);
-        bossStats.maxHealth += 500;
-        Instantiate(boss[rand], transform.position, Quaternion.identity);
-        
+        //int rand = Random.Range(0, boss.Length);
+        bossStats.maxHealth += 100;
+        Instantiate(boss[bossLevel], transform.position, Quaternion.identity);
+        bossLevel += 1;
     }
 }
