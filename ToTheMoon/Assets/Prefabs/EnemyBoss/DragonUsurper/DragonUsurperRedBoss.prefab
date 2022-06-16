@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8125988447313849600
 RectTransform:
   m_ObjectHideFlags: 0
@@ -144,6 +144,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
@@ -3014,14 +3022,12 @@ MonoBehaviour:
   instance: {fileID: 0}
   coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
   diamond: {fileID: 7019530144987985055, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  bulletShower: {fileID: 7110479707411009508, guid: e4de477278fc45e428e38ebea7c8aaf4, type: 3}
   maxHealth: 1500
   currentHealth: 0
   healthBar: {fileID: 4774968440331421815}
   coinToDrop: 18
   scoreToAdd: 36
   xpToAdd: 36
-  spawnBoss: {fileID: 0}
 --- !u!95 &2742070628107853680
 Animator:
   serializedVersion: 3
@@ -3048,7 +3054,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2742070628117243854}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -4436,6 +4442,14 @@ MonoBehaviour:
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -4488,6 +4502,14 @@ MonoBehaviour:
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -4507,7 +4529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3110129124694047953
 Transform:
   m_ObjectHideFlags: 0
@@ -4586,6 +4608,14 @@ MonoBehaviour:
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -4638,6 +4668,14 @@ MonoBehaviour:
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -4674,7 +4712,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

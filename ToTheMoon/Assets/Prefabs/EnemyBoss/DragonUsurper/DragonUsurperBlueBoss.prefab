@@ -44,11 +44,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
+  - {fileID: 1700571169596728657, guid: dcccb62f48c55494a8b9dce25f972fdb, type: 3}
+  - {fileID: 156908040098660450, guid: 581750ff9c4aa894692f5888b184edfe, type: 3}
+  - {fileID: 5571081488016988622, guid: 40e4d2c1677e42c44ada2c625fb0da62, type: 3}
+  - {fileID: 1536820214587696530, guid: d5bcead016b8e0143966d89fc0a7cf59, type: 3}
+  - {fileID: 2820567856418285626, guid: f030c6e7c9e68ce45af6d95e1e129ff4, type: 3}
+  - {fileID: 267798073151276951, guid: f6fdd0670b49ce4418a02fc9861e53db, type: 3}
   - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -96,11 +103,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
+  - {fileID: 1700571169596728657, guid: dcccb62f48c55494a8b9dce25f972fdb, type: 3}
+  - {fileID: 156908040098660450, guid: 581750ff9c4aa894692f5888b184edfe, type: 3}
+  - {fileID: 5571081488016988622, guid: 40e4d2c1677e42c44ada2c625fb0da62, type: 3}
+  - {fileID: 1536820214587696530, guid: d5bcead016b8e0143966d89fc0a7cf59, type: 3}
+  - {fileID: 2820567856418285626, guid: f030c6e7c9e68ce45af6d95e1e129ff4, type: 3}
+  - {fileID: 267798073151276951, guid: f6fdd0670b49ce4418a02fc9861e53db, type: 3}
   - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -2861,14 +2875,12 @@ MonoBehaviour:
   instance: {fileID: 0}
   coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
   diamond: {fileID: 7019530144987985055, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  bulletShower: {fileID: 7110479707411009508, guid: e4de477278fc45e428e38ebea7c8aaf4, type: 3}
   maxHealth: 1400
   currentHealth: 0
   healthBar: {fileID: 8301934010668699726}
   coinToDrop: 16
   scoreToAdd: 32
   xpToAdd: 32
-  spawnBoss: {fileID: 0}
 --- !u!95 &1693272325482678089
 Animator:
   serializedVersion: 3
@@ -2895,7 +2907,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693272325492211703}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -4224,7 +4236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4735310641874761017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4350,11 +4362,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
+  - {fileID: 1700571169596728657, guid: dcccb62f48c55494a8b9dce25f972fdb, type: 3}
+  - {fileID: 156908040098660450, guid: 581750ff9c4aa894692f5888b184edfe, type: 3}
+  - {fileID: 5571081488016988622, guid: 40e4d2c1677e42c44ada2c625fb0da62, type: 3}
+  - {fileID: 1536820214587696530, guid: d5bcead016b8e0143966d89fc0a7cf59, type: 3}
+  - {fileID: 2820567856418285626, guid: f030c6e7c9e68ce45af6d95e1e129ff4, type: 3}
+  - {fileID: 267798073151276951, guid: f6fdd0670b49ce4418a02fc9861e53db, type: 3}
   - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -4535,11 +4554,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
+  - {fileID: 1700571169596728657, guid: dcccb62f48c55494a8b9dce25f972fdb, type: 3}
+  - {fileID: 156908040098660450, guid: 581750ff9c4aa894692f5888b184edfe, type: 3}
+  - {fileID: 5571081488016988622, guid: 40e4d2c1677e42c44ada2c625fb0da62, type: 3}
+  - {fileID: 1536820214587696530, guid: d5bcead016b8e0143966d89fc0a7cf59, type: 3}
+  - {fileID: 2820567856418285626, guid: f030c6e7c9e68ce45af6d95e1e129ff4, type: 3}
+  - {fileID: 267798073151276951, guid: f6fdd0670b49ce4418a02fc9861e53db, type: 3}
   - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -4576,7 +4602,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4662,11 +4688,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
+  - {fileID: 1700571169596728657, guid: dcccb62f48c55494a8b9dce25f972fdb, type: 3}
+  - {fileID: 156908040098660450, guid: 581750ff9c4aa894692f5888b184edfe, type: 3}
+  - {fileID: 5571081488016988622, guid: 40e4d2c1677e42c44ada2c625fb0da62, type: 3}
+  - {fileID: 1536820214587696530, guid: d5bcead016b8e0143966d89fc0a7cf59, type: 3}
+  - {fileID: 2820567856418285626, guid: f030c6e7c9e68ce45af6d95e1e129ff4, type: 3}
+  - {fileID: 267798073151276951, guid: f6fdd0670b49ce4418a02fc9861e53db, type: 3}
   - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
+  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -4686,7 +4719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1899139661792519400
 Transform:
   m_ObjectHideFlags: 0

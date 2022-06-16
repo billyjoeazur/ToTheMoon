@@ -11,8 +11,8 @@ public class BossStats : MonoBehaviour
     Coin coin;
     [SerializeField]
     Coin diamond;
-    [SerializeField]
-    BulletShower bulletShower;
+    // [SerializeField]
+    // BulletShower bulletShower;
 
     public float maxHealth;
     public float currentHealth;
@@ -21,12 +21,11 @@ public class BossStats : MonoBehaviour
     public int scoreToAdd;
     public int xpToAdd;
 
-    public BossSpawner spawnBoss;
+    BossSpawner spawnBoss;
     
     private void Awake() 
     {
-        spawnBoss = FindObjectOfType<BossSpawner>().GetComponent<BossSpawner>();
-        
+        spawnBoss = FindObjectOfType<BossSpawner>();
     }
 
     void Start()
@@ -62,6 +61,7 @@ public class BossStats : MonoBehaviour
                     Coin drop = Instantiate(diamond, transform.position, Quaternion.identity);
                     
                 }
+                
                 spawnBoss.SpawnBoss();
             }
 

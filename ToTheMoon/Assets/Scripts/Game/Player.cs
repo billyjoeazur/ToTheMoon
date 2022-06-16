@@ -13,16 +13,20 @@ public class Player : MonoBehaviour
     public HealthBar healthBar;
 
     public Text coinsText;
-    int currentCoin = 0;
+    public int currentCoin = 0;
     public Text diamondText;
-    int currentDiamond = 0;
+    public int currentDiamond = 0;
     public Text scoreText;
-
+    
+    public GameObject GameMenuPanel, newHighscore;
+    
+    
     void Awake()
     {
         maxHealth = playerData._maxHealth;
         PlayerPrefs.SetInt("BossLevel", 0);
         PlayerPrefs.SetInt("CurrentScore", 0);
+        Time.timeScale = 1f;
     }
 
     void Start()
@@ -30,6 +34,7 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
+    
 
     void Update()
     {
@@ -37,6 +42,19 @@ public class Player : MonoBehaviour
         diamondText.text = currentDiamond.ToString();
         scoreText.text = PlayerPrefs.GetInt("CurrentScore").ToString();
         healthBar.SetHealth(currentHealth);
+        
+        if(currentHealth <= 0)
+        {
+            Time.timeScale = 0f;
+            GameMenuPanel.SetActive(true);
+        }
+        
+        if(PlayerPrefs.GetInt("CurrentScore") > PlayerPrefs.GetInt("HighestScore"))
+        {
+            PlayerPrefs.SetInt("HighestScore", PlayerPrefs.GetInt("CurrentScore"));
+            newHighscore.SetActive(true);
+            
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

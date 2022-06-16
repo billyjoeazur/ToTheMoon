@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MenuTest : MonoBehaviour
+public class NormalEnemyMovement : MonoBehaviour
 {
+    public float downSpeed;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +15,6 @@ public class MenuTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void PlayAgain()
-    {
-        SceneManager.LoadScene("Game");
+        transform.Translate(Vector2.down * downSpeed * Time.deltaTime);
     }
 }

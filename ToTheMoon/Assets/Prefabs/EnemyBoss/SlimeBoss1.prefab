@@ -44,11 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
   - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -96,11 +95,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
   - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -120,7 +118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7964209623231298593
 Transform:
   m_ObjectHideFlags: 0
@@ -194,11 +192,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
   - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -275,14 +272,13 @@ MonoBehaviour:
   instance: {fileID: 2239406926429112736}
   coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
   diamond: {fileID: 7019530144987985055, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  bulletShower: {fileID: 7110479707411009508, guid: e4de477278fc45e428e38ebea7c8aaf4, type: 3}
   maxHealth: 200
   currentHealth: 0
   healthBar: {fileID: 2239406927421509775}
   coinToDrop: 8
   scoreToAdd: 16
   xpToAdd: 16
-  spawnBoss: {fileID: 0}
+  bossLevel: 0
 --- !u!95 &2179977818059138402
 Animator:
   serializedVersion: 3
@@ -330,7 +326,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2238332102736361100}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -404,7 +400,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -597,7 +593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2239406927946264647
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1168,11 +1164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
   - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -1220,11 +1215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
   - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18

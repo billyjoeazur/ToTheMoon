@@ -11,6 +11,8 @@ TagManager:
   - Boss
   - Diamond
   - HP
+  - EnemyBossShootSpot
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

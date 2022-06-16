@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     public float startTimeBtwSpawn;
     public float decreaseTime;
     public float minimumTime = 1f;
+    //[HideInInspector]
+    //public BossStats bossStats;
 
     void Start()
     {
@@ -20,8 +22,12 @@ public class EnemySpawner : MonoBehaviour
 
         if (timeBtwSpawn <= 0)
         {
-            int rand = Random.Range(0, enemy.Length);
-            Instantiate(enemy[rand], transform.position, Quaternion.identity);
+            int level = PlayerPrefs.GetInt("BossLevel");
+            if (Time.timeScale == 1)
+            {
+                Instantiate(enemy[level], transform.position, Quaternion.identity);
+            }
+            
             timeBtwSpawn = startTimeBtwSpawn;
             if (startTimeBtwSpawn > minimumTime)
             {
@@ -32,5 +38,10 @@ public class EnemySpawner : MonoBehaviour
         {
             timeBtwSpawn -= decreaseTime;
         }
+    }
+
+    private void FixedUpdate() 
+    {
+        
     }
 }

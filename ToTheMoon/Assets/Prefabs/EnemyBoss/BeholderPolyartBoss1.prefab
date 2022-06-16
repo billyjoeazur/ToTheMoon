@@ -46,9 +46,8 @@ MonoBehaviour:
   enemy:
   - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
   - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -66,11 +65,11 @@ GameObject:
   - component: {fileID: 8461945077234711221}
   m_Layer: 0
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: HP
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2737965576390562878
 RectTransform:
   m_ObjectHideFlags: 0
@@ -198,9 +197,8 @@ MonoBehaviour:
   enemy:
   - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
   - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -250,9 +248,8 @@ MonoBehaviour:
   enemy:
   - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
   - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -1502,8 +1499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0a6ad181babc84a99ceb665c6c77f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerationTime: 2
-  maxSpeed: 3
+  accelerationTime: 0.2
+  maxSpeed: 300
 --- !u!114 &5657261318037563427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1516,17 +1513,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35c3e1c47f045754d924006e33be9325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instance: {fileID: 0}
+  instance: {fileID: 5657261318037563427}
   coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
   diamond: {fileID: 7019530144987985055, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  bulletShower: {fileID: 7110479707411009508, guid: e4de477278fc45e428e38ebea7c8aaf4, type: 3}
   maxHealth: 500
   currentHealth: 0
   healthBar: {fileID: 562515573540323883}
   coinToDrop: 6
   scoreToAdd: 12
   xpToAdd: 12
-  spawnBoss: {fileID: 0}
 --- !u!95 &5468827097999386022
 Animator:
   serializedVersion: 3
@@ -1553,7 +1548,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5468827098008901222}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2068,9 +2063,8 @@ MonoBehaviour:
   enemy:
   - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
   - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -2120,9 +2114,8 @@ MonoBehaviour:
   enemy:
   - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
   - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
+  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
+  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -2138,11 +2131,11 @@ GameObject:
   - component: {fileID: 4408423615970322307}
   m_Layer: 0
   m_Name: ShootSpot
-  m_TagString: Untagged
+  m_TagString: EnemyBossShootSpot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2752535242967702549
 Transform:
   m_ObjectHideFlags: 0

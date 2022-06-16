@@ -821,14 +821,12 @@ MonoBehaviour:
   instance: {fileID: 0}
   coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
   diamond: {fileID: 7019530144987985055, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  bulletShower: {fileID: 7110479707411009508, guid: e4de477278fc45e428e38ebea7c8aaf4, type: 3}
   maxHealth: 75
   currentHealth: 0
   healthBar: {fileID: 5223604546014892907}
   coinToDrop: 2
   scoreToAdd: 4
   xpToAdd: 4
-  spawnBoss: {fileID: 0}
 --- !u!95 &5273387863309952646
 Animator:
   serializedVersion: 3

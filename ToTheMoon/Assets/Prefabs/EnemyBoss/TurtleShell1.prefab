@@ -948,14 +948,12 @@ MonoBehaviour:
   instance: {fileID: 0}
   coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
   diamond: {fileID: 7019530144987985055, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  bulletShower: {fileID: 7110479707411009508, guid: e4de477278fc45e428e38ebea7c8aaf4, type: 3}
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 4441520413790894807}
   coinToDrop: 3
   scoreToAdd: 6
   xpToAdd: 6
-  spawnBoss: {fileID: 0}
 --- !u!95 &5151740261764569539
 Animator:
   serializedVersion: 3
@@ -995,7 +993,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!58 &5084682533688308214
 CircleCollider2D:
   m_ObjectHideFlags: 0

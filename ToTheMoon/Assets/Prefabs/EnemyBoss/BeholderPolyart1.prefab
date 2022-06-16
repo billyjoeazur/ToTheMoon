@@ -1314,14 +1314,12 @@ MonoBehaviour:
   instance: {fileID: 0}
   coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
   diamond: {fileID: 7019530144987985055, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  bulletShower: {fileID: 7110479707411009508, guid: e4de477278fc45e428e38ebea7c8aaf4, type: 3}
   maxHealth: 50
   currentHealth: 0
   healthBar: {fileID: 1227942821447788847}
   coinToDrop: 1
   scoreToAdd: 2
   xpToAdd: 2
-  spawnBoss: {fileID: 0}
 --- !u!95 &6297414124006731395
 Animator:
   serializedVersion: 3
@@ -1354,7 +1352,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.45}
+  m_Offset: {x: 0, y: 0.83}
   serializedVersion: 2
   m_Radius: 0.53
 --- !u!50 &8050785001689676743
@@ -1846,7 +1844,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7052568321871742495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7560347311462020080}
@@ -1855,7 +1853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2.61}
+  m_AnchoredPosition: {x: 0, y: 1.34}
   m_SizeDelta: {x: 0.56007, y: 0.0927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3385706019886639585
