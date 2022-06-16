@@ -11,6 +11,8 @@ public class GameMenu : MonoBehaviour
     public Text scoreText, highscoreText, coins, diamonds;
     public Player playerCurrency;
     
+    [SerializeField] RewardedAdsButton rewardedAdsButton;
+    bool isDoneLoad = false;
     void Start()
     {
         
@@ -20,6 +22,12 @@ public class GameMenu : MonoBehaviour
     {
         if(this.gameObject.activeSelf)
         {
+            if (!isDoneLoad)
+            {
+                rewardedAdsButton.LoadAd();
+                isDoneLoad = true;
+            }
+            
             scoreText.text = "SCORE: " + PlayerPrefs.GetInt("CurrentScore").ToString();
             highscoreText.text =  "HIGHSCORE: " + PlayerPrefs.GetInt("HighestScore").ToString();
             coins.text = "GOLD: " + playerCurrency.currentCoin.ToString();
