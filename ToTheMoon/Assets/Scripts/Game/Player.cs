@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public Text scoreText;
     
     public GameObject GameMenuPanel, newHighscore;
-    
+    public bool isNewHighscore = false;
     
     void Awake()
     {
@@ -49,11 +49,11 @@ public class Player : MonoBehaviour
             GameMenuPanel.SetActive(true);
         }
         
-        if(PlayerPrefs.GetInt("CurrentScore") > PlayerPrefs.GetInt("HighestScore"))
+        if(PlayerPrefs.GetInt("CurrentScore") > playerData._highestScore)
         {
-            PlayerPrefs.SetInt("HighestScore", PlayerPrefs.GetInt("CurrentScore"));
+            playerData._highestScore = PlayerPrefs.GetInt("CurrentScore");
             newHighscore.SetActive(true);
-            
+            isNewHighscore = true;
         }
     }
 

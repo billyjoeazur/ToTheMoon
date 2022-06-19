@@ -9,10 +9,14 @@ using PlayFab.ClientModels;
 public class GameMenu : MonoBehaviour
 {
     public Text scoreText, highscoreText, coins, diamonds;
-    public Player playerCurrency;
+    public Player player;
+    public PlayerData playerData;
     
     [SerializeField] RewardedAdsButton rewardedAdsButton;
-    bool isDoneLoad = false;
+    bool _isDoneLoad = false;
+    bool _coinAdded = false;
+    bool _diamondAdded = false;
+    //bool _highScoreAdded = false;
     void Start()
     {
         
@@ -22,16 +26,40 @@ public class GameMenu : MonoBehaviour
     {
         if(this.gameObject.activeSelf)
         {
-            if (!isDoneLoad)
+            //load the rewarded add
+            if (!_isDoneLoad)
             {
                 rewardedAdsButton.LoadAd();
-                isDoneLoad = true;
+                _isDoneLoad = true;
             }
             
             scoreText.text = "SCORE: " + PlayerPrefs.GetInt("CurrentScore").ToString();
-            highscoreText.text =  "HIGHSCORE: " + PlayerPrefs.GetInt("HighestScore").ToString();
-            coins.text = "GOLD: " + playerCurrency.currentCoin.ToString();
-            diamonds.text = "DIAMOND: " + playerCurrency.currentDiamond.ToString();
+            highscoreText.text =  "HIGHSCORE: " + playerData._highestScore.ToString();
+            coins.text = "GOLD: " + player.currentCoin.ToString();
+            diamonds.text = "DIAMOND: " + player.currentDiamond.ToString();
+            
+            //add new highscore
+            if (player.isNewHighscore)
+            {
+                playerData.SetPlayerHighestScore(playerData._highestScore);
+                player.isNewHighscore = false;
+            }
+            
+            //add goldcoin
+            if (!_coinAdded)
+            {
+                playerData.AddCoin(player.currentCoin);
+                _coinAdded = true;
+            }
+            
+            //add diamond
+            if (!_diamondAdded)
+            {
+                playerData.AddDiamond(player.currentDiamond);
+                _diamondAdded = true;
+            }
+            
+            
         }
     }
 

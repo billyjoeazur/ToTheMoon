@@ -68,7 +68,7 @@ public class Menu : MonoBehaviour
 	public void addHPXP()
 	{
 		//playerData.SavePlayerData(0,0,0);
-		AddCoin();
+		
 	}
 
 	public void LeaderboardScene()
@@ -81,24 +81,9 @@ public class Menu : MonoBehaviour
 		SceneManager.LoadScene("Game");
 	}
 
-	public int coinAmount;
-	public void AddCoin()
-	{
-		var request = new AddUserVirtualCurrencyRequest{
-			VirtualCurrency = "DI",
-			Amount = coinAmount
-		};
-		PlayFabClientAPI.AddUserVirtualCurrency(request, OnAddCoinSuccess, OnError);
+	//public int goldAmount;
+	
 
-	}
+	
 
-	private void OnAddCoinSuccess(ModifyUserVirtualCurrencyResult result)
-	{
-		Debug.Log(coinAmount + " Coin Added");
-	}
-
-	private void OnError(PlayFabError error)
-	{
-		Debug.Log(error.GenerateErrorReport());
-	}
 }

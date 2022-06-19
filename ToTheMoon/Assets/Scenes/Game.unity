@@ -1765,6 +1765,7 @@ MonoBehaviour:
   scoreText: {fileID: 430146842}
   GameMenuPanel: {fileID: 1975430262}
   newHighscore: {fileID: 1041824024}
+  isNewHighscore: 0
 --- !u!1 &912444475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,7 +1801,8 @@ MonoBehaviour:
   _showAdButton: {fileID: 912444477}
   _androidAdUnitId: Rewarded_Android
   _iOSAdUnitId: Rewarded_iOS
-  playerCurrency: {fileID: 818880541}
+  player: {fileID: 818880541}
+  playerData: {fileID: 5609275764425747696, guid: f54ac11a10a7d4740b7b031f8483826e, type: 3}
 --- !u!114 &912444477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,7 +3784,8 @@ MonoBehaviour:
   highscoreText: {fileID: 1747607711}
   coins: {fileID: 568332697}
   diamonds: {fileID: 1568350413}
-  playerCurrency: {fileID: 818880541}
+  player: {fileID: 818880541}
+  playerData: {fileID: 5609275764425747696, guid: f54ac11a10a7d4740b7b031f8483826e, type: 3}
   rewardedAdsButton: {fileID: 912444476}
 --- !u!1 &1986107312
 GameObject:
@@ -3844,9 +3847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480153bb23d151445830560b09ae64b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loadBannerButton: {fileID: 0}
-  _showBannerButton: {fileID: 0}
-  _hideBannerButton: {fileID: 0}
   _bannerPosition: 4
   _androidAdUnitId: Banner_Android
   _iOSAdUnitId: Banner_iOS

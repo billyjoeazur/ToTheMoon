@@ -9,7 +9,8 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
     string _adUnitId = null; // This will remain null for unsupported platforms
     
-    public Player playerCurrency;
+    public Player player;
+    public PlayerData playerData;
  
     void Awake()
     {   
@@ -62,7 +63,10 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
-            playerCurrency.currentCoin += playerCurrency.currentCoin;
+            
+            playerData.AddCoin(player.currentCoin);
+            player.currentCoin += player.currentCoin;
+            
             // Load another ad:
             // INALIS KO TO BOI ---> Advertisement.Load(_adUnitId, this);
         }

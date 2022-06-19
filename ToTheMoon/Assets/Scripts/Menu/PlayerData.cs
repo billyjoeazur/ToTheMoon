@@ -138,16 +138,39 @@ public class PlayerData : MonoBehaviour
 		}
 		
 	}
+	
+	//add gold
+	public void AddCoin(int goldAmount)
+	{
+		var requestGold = new AddUserVirtualCurrencyRequest{
+			VirtualCurrency = "CO",
+			Amount = goldAmount
+		};
+		PlayFabClientAPI.AddUserVirtualCurrency(requestGold, OnAddCoinSuccess, OnError);
+	}
+	
+	private void OnAddCoinSuccess(ModifyUserVirtualCurrencyResult result)
+	{
+		Debug.Log("Coin Added");
+	}
+	
+	//add diamond
+	public void AddDiamond(int diamondAmount)
+	{
+		var requestDiamond = new AddUserVirtualCurrencyRequest{
+			VirtualCurrency = "DI",
+			Amount = diamondAmount
+		};
+		PlayFabClientAPI.AddUserVirtualCurrency(requestDiamond, OnAddDiamondSuccess, OnError);
+	}
+	
+	private void OnAddDiamondSuccess(ModifyUserVirtualCurrencyResult result)
+	{
+		Debug.Log("Diamond Added");
+	}
 
-	// private void OnErrorHS(PlayFabError error)
-	// {
-	// 	Debug.Log(error.GenerateErrorReport());
-	// 	SetPlayerHighestScore(0);
-	// }
 
 	#endregion
 
-	// ACCESS TOKEN 
-	//EAAEWEtoY0ZBABAEZAcs8HvsiFWO06XJIqQc8BIrO2Sqc7crwNV43kZAiUZCO33nubYH84megQohW3PVy7R99GQGHNT089tq0uWDfYCgUFy0QlQYB7QHZBRQxcb2wpb22huLJ9FwDTpncJDoZBUgGkadd9tbGOaX7gs6sfZB7ARaHQZDZD
-
+	
 }
