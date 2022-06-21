@@ -7,12 +7,8 @@ public class BossStats : MonoBehaviour
     public BossStats instance;
 
     int c = 0;
-    [SerializeField]
-    Coin coin;
-    [SerializeField]
-    Coin diamond;
-    // [SerializeField]
-    // BulletShower bulletShower;
+    [SerializeField] Coin coin;
+    [SerializeField] Coin diamond;
 
     public float maxHealth;
     public float currentHealth;
@@ -22,6 +18,7 @@ public class BossStats : MonoBehaviour
     public int xpToAdd;
 
     BossSpawner spawnBoss;
+    [SerializeField] BulletScatter scatterPrefab;
     
     private void Awake() 
     {
@@ -30,7 +27,6 @@ public class BossStats : MonoBehaviour
 
     void Start()
     {
-        //maxHealth = 1500f;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -64,10 +60,8 @@ public class BossStats : MonoBehaviour
                 
                 spawnBoss.SpawnBoss();
             }
-
-
             Destroy(gameObject);       // destroy the boss
-            //PlayerPrefs.SetInt("BossDestroyed", 1);
+            
         }
     }
 
@@ -85,12 +79,12 @@ public class BossStats : MonoBehaviour
             }
         }
 
-        if (other.gameObject.tag == "Bullet2")
+        if (other.gameObject.tag == "BulletKnockback")
         {
             int damage = 50;
             if (currentHealth > 1)
             {
-                transform.Translate(Vector2.up * 15 * Time.deltaTime);
+                transform.Translate(Vector2.up * 500 * Time.deltaTime);
                 healthBar.SetHealth(currentHealth);
                 currentHealth -= damage;
                 Destroy(other.gameObject);  //destroy bullet
@@ -98,20 +92,25 @@ public class BossStats : MonoBehaviour
             }
         }
 
-		if (other.gameObject.tag == "Bullet4")
+		if (other.gameObject.tag == "BulletSlow")
 		{
 			int damage = 50;
 			if (currentHealth > 1)
 			{
 				healthBar.SetHealth(currentHealth);
 				currentHealth -= damage;
-				//this.GetComponent<Bairus>().downSpeed = .5f;
-				this.GetComponent<SpriteRenderer>().color = Color.cyan;
+                if (gameObject.tag == "Enemy")
+                {
+                    this.GetComponent<EnemyMovement>().maxSpeed = 2.5f;
+                    this.GetComponent<EnemyMovement>().downSpeed = 5f;
+                }
+				
+				//this.GetComponent<SpriteRenderer>().color = Color.cyan;
 				Destroy(other.gameObject);  //destroy bullet
 			}
 		}
 
-		if (other.gameObject.tag == "Bullet5")
+		if (other.gameObject.tag == "BulletPenetrate")
 		{
 			int damage = 50;
 			if (currentHealth > 1)
@@ -120,6 +119,29 @@ public class BossStats : MonoBehaviour
 				currentHealth -= damage;
 			}
 		}
+        
+        if (other.gameObject.tag == "BulletScatter")
+        {
+            int damage = 50;
+            int scatterCount = 3;
+            if (currentHealth > 1)
+            {
+                healthBar.SetHealth(currentHealth);
+                currentHealth -= damage;
+                
+                if (gameObject.tag == "Enemy")
+                {
+                    while (scatterCount > 0)
+                    {
+                        BulletScatter scatter = Instantiate(scatterPrefab, transform.position, Quaternion.identity);
+                        scatterCount--;
+                    }
+                }
+                
+                
+                Destroy(other.gameObject);  //destroy bullet
+            }
+        }
 
 	}
 }

@@ -13,6 +13,10 @@ TagManager:
   - HP
   - EnemyBossShootSpot
   - EnemySpawner
+  - BulletKnockback
+  - BulletSlow
+  - BulletPenetrate
+  - BulletScatter
   layers:
   - Default
   - TransparentFX

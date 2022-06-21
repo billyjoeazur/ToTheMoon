@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletShower : MonoBehaviour
+public class BulletScatter : MonoBehaviour
 {
     Rigidbody2D rb;
     float xForce;
@@ -13,8 +13,8 @@ public class BulletShower : MonoBehaviour
     {
         //ricochet
         rb = GetComponent<Rigidbody2D>();
-        xForce = Random.Range(-1000, 1000);
-        yForce = Random.Range(5000f, 5000f);
+        xForce = Random.Range(-5000, 5000);
+        yForce = Random.Range(2000f, 2000f);
         force = new Vector2(xForce, yForce);
 
         rb.AddForce(force);
@@ -23,6 +23,13 @@ public class BulletShower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 1f);
+        StartCoroutine(AddTag(0.1f));
+        Destroy(gameObject, 1.5f);
+    }
+    
+    IEnumerator AddTag(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        gameObject.tag = "Bullet";
     }
 }

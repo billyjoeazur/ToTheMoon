@@ -954,6 +954,7 @@ MonoBehaviour:
   coinToDrop: 3
   scoreToAdd: 6
   xpToAdd: 6
+  scatterPrefab: {fileID: 651063643616909187, guid: f8ac9f2559f9aa84b8282fac7e7a5af7, type: 3}
 --- !u!95 &5151740261764569539
 Animator:
   serializedVersion: 3

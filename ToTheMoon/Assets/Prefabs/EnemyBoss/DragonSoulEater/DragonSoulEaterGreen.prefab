@@ -1841,14 +1841,13 @@ MonoBehaviour:
   instance: {fileID: 0}
   coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
   diamond: {fileID: 7019530144987985055, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  bulletShower: {fileID: 7110479707411009508, guid: e4de477278fc45e428e38ebea7c8aaf4, type: 3}
   maxHealth: 150
   currentHealth: 0
   healthBar: {fileID: 7740641689146896704}
   coinToDrop: 9
   scoreToAdd: 18
   xpToAdd: 18
-  spawnBoss: {fileID: 0}
+  scatterPrefab: {fileID: 651063643616909187, guid: f8ac9f2559f9aa84b8282fac7e7a5af7, type: 3}
 --- !u!58 &4806749807731922251
 CircleCollider2D:
   m_ObjectHideFlags: 0

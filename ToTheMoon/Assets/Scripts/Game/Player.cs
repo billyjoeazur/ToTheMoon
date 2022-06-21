@@ -43,12 +43,14 @@ public class Player : MonoBehaviour
         scoreText.text = PlayerPrefs.GetInt("CurrentScore").ToString();
         healthBar.SetHealth(currentHealth);
         
-        if(currentHealth <= 0)
-        {
-            Time.timeScale = 0f;
-            GameMenuPanel.SetActive(true);
-        }
+        //game over
+        // if(currentHealth <= 0)
+        // {
+        //     Time.timeScale = 0f;
+        //     GameMenuPanel.SetActive(true);
+        // }
         
+        //check highscore
         if(PlayerPrefs.GetInt("CurrentScore") > playerData._highestScore)
         {
             playerData._highestScore = PlayerPrefs.GetInt("CurrentScore");
