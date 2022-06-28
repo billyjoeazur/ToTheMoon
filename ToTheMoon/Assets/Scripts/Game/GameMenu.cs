@@ -8,7 +8,7 @@ using PlayFab.ClientModels;
 
 public class GameMenu : MonoBehaviour
 {
-    public Text scoreText, highscoreText, coins, diamonds;
+    public Text scoreText, highscoreText, coins, diamonds, expi;
     public Player player;
     public PlayerData playerData;
     
@@ -16,6 +16,7 @@ public class GameMenu : MonoBehaviour
     bool _isDoneLoad = false;
     bool _coinAdded = false;
     bool _diamondAdded = false;
+    bool _expiAdded = false;
     //bool _highScoreAdded = false;
     void Start()
     {
@@ -37,7 +38,7 @@ public class GameMenu : MonoBehaviour
             highscoreText.text =  "HIGHSCORE: " + playerData._highestScore.ToString();
             coins.text = "GOLD: " + player.currentCoin.ToString();
             diamonds.text = "DIAMOND: " + player.currentDiamond.ToString();
-            
+            expi.text = PlayerPrefs.GetInt("CurrentXP").ToString();
             //add new highscore
             if (player.isNewHighscore)
             {
@@ -57,6 +58,12 @@ public class GameMenu : MonoBehaviour
             {
                 playerData.AddDiamond(player.currentDiamond);
                 _diamondAdded = true;
+            }
+            
+            if (!_expiAdded)
+            {
+                playerData.AddXPToServer(PlayerPrefs.GetInt("CurrentXP"));
+                _expiAdded = true;
             }
             
             

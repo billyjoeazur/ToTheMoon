@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public Text diamondText;
     public int currentDiamond = 0;
     public Text scoreText;
+    public Text expiText;
     
     public GameObject GameMenuPanel, newHighscore;
     public bool isNewHighscore = false;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
         maxHealth = playerData._maxHealth;
         PlayerPrefs.SetInt("BossLevel", 0);
         PlayerPrefs.SetInt("CurrentScore", 0);
+        PlayerPrefs.SetInt("CurrentXP", 0);
         Time.timeScale = 1f;
     }
 
@@ -42,13 +44,13 @@ public class Player : MonoBehaviour
         diamondText.text = currentDiamond.ToString();
         scoreText.text = PlayerPrefs.GetInt("CurrentScore").ToString();
         healthBar.SetHealth(currentHealth);
-        
+        expiText.text = PlayerPrefs.GetInt("CurrentXP").ToString();
         //game over
-        // if(currentHealth <= 0)
-        // {
-        //     Time.timeScale = 0f;
-        //     GameMenuPanel.SetActive(true);
-        // }
+        if(currentHealth <= 0)
+        {
+            Time.timeScale = 0f;
+            GameMenuPanel.SetActive(true);
+        }
         
         //check highscore
         if(PlayerPrefs.GetInt("CurrentScore") > playerData._highestScore)

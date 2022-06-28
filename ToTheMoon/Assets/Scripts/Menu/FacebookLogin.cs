@@ -118,6 +118,7 @@ public class FacebookLogin : MonoBehaviour
 		else
 		{
 			Debug.Log("old player login!");
+			playerData.GetPlayerData();
 			StartCoroutine(LoadStartScene(5f));
 		}
 		
@@ -176,7 +177,7 @@ public class FacebookLogin : MonoBehaviour
 			Data = new Dictionary<string, string>
 			{
 				{"MaxHealth", playerData._maxHealth.ToString() },
-				{"Expi", playerData._expi.ToString() }
+				{"Expi", playerData._totalXP.ToString() }
 			}
 		};
 
@@ -185,13 +186,13 @@ public class FacebookLogin : MonoBehaviour
 		PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest { DisplayName = playerData.displayname }, OnDisplayName, OnError);
 
 		playerData._maxHealth = 100;
-		playerData._expi = 0;
+		playerData._totalXP = 0;
 		playerData._coins = 0;
 		playerData._highestScore = 0;
-		playerData.SavePlayerData(0, 0, 0, 0);
+		playerData.SavePlayerData(100, 0, 0, 0);
 		playerData.SetPlayerHighestScore(0);
 
-		StartCoroutine(LoadStartScene(3f));
+		StartCoroutine(LoadStartScene(2f));
 
 	}
 

@@ -10,17 +10,22 @@ public class Menu : MonoBehaviour
 {
 	public Text hp;
 	public Text lvlText;
-	public Text xp;
+	public Text xpNeedToLevelUpText;
 	public Text coinT;
 	public Text diamondT;
 	public Text hscore;
 	public Text displayname;
 	public Image dp;
-	public int level;
-	public int expi;
+	
 	
 	public PlayerData playerData;
 	public FacebookLogin fbLogin;
+	public HealthBar expiBar;
+	
+	// int level = 1;
+	// int currentXP;
+	// int targetXP = 100;
+	// int xpNeedToLevelUp;
 	
 	private void Awake()
 	{
@@ -33,41 +38,26 @@ public class Menu : MonoBehaviour
 	}
 	void Start()
     {
-		LevelSystem();
+		playerData.AddXPToServer(0);
+		
+		expiBar.SetMaxHealth(playerData.targetXP);
+		expiBar.SetHealth(playerData.xpNeedToLevelUp);
 	}
-
-	void LevelSystem()
+	
+	public void AddXPBtn()
 	{
-		int[] lvl = {0, 100, 160, 256, 409};
-		for (int i = 0; i < lvl.Length; i++)
-		{
-			if (playerData._expi > lvl[i])
-			{
-				playerData._expi -= lvl[i];
-				level = i;
-				
-			}
-			else
-			{
-				expi = lvl[i-1] - playerData._expi;
-			}
-		}
+		playerData.AddXPToServer(5);
 	}
 
     void Update()
     {
 		hp.text = playerData._maxHealth.ToString();
-		xp.text = playerData._expi.ToString();
-		lvlText.text = level.ToString();
-		//xp.text = expi.ToString();
+		
 		coinT.text = playerData._coins.ToString();
 		diamondT.text = playerData._diamonds.ToString();
-		hscore.text = playerData._highestScore.ToString();
-	}
-
-	public void addHPXP()
-	{
-		//playerData.SavePlayerData(0,0,0);
+		hscore.text = "Highest Score: " + playerData._highestScore.ToString();
+		xpNeedToLevelUpText.text = playerData.xpNeedToLevelUp.ToString();
+		lvlText.text = " Level: " + playerData._level.ToString();
 		
 	}
 
@@ -80,6 +70,13 @@ public class Menu : MonoBehaviour
 	{
 		SceneManager.LoadScene("Game");
 	}
+	
+	public void ProfileScene()
+	{
+		SceneManager.LoadScene("Profile");
+	}
+	
+	
 
 	//public int goldAmount;
 	
