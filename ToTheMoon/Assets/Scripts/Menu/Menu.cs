@@ -30,15 +30,16 @@ public class Menu : MonoBehaviour
 	private void Awake()
 	{
 		playerData.GetPlayerData();
-		playerData.GetCoin();
+		playerData.GetCoinDiamond();
 		playerData.GetHighestScore();
 		fbLogin = FindObjectOfType<FacebookLogin>().GetComponent<FacebookLogin>();
 		displayname.text = playerData.displayname;
 		dp.sprite = fbLogin.dp;
+		playerData.AddXPToServer(0);
 	}
 	void Start()
     {
-		playerData.AddXPToServer(0);
+		
 		
 		expiBar.SetMaxHealth(playerData.targetXP);
 		expiBar.SetHealth(playerData.xpNeedToLevelUp);
@@ -74,6 +75,11 @@ public class Menu : MonoBehaviour
 	public void ProfileScene()
 	{
 		SceneManager.LoadScene("Profile");
+	}
+	
+	public void ShopScene()
+	{
+		SceneManager.LoadScene("Shop");
 	}
 	
 	

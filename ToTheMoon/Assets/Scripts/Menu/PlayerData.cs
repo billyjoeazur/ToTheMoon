@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using PlayFab;
 using PlayFab.ClientModels;
+using Newtonsoft.Json;
 using System;
 
 public class PlayerData : MonoBehaviour
@@ -13,12 +14,14 @@ public class PlayerData : MonoBehaviour
 
 	public string displayname;
 	public float _maxHealth;
-	//public int _expi;
 	public int _coins;
 	public int _diamonds;
 	public int _highestScore;
 	public int _level;
 	public int _totalXP;
+	public int xpNeedToLevelUp;
+	public int targetXP;
+	public List<Spaceship> spaceships = new List<Spaceship>();
 	
 	
 	
@@ -54,6 +57,7 @@ public class PlayerData : MonoBehaviour
 		{
 			_maxHealth = float.Parse(result.Data["MaxHealth"].Value);
 			_totalXP = int.Parse(result.Data["Expi"].Value);
+			spaceships = JsonConvert.DeserializeObject<List<Spaceship>>(result.Data["Spaceships"].Value);
 		}
 		else
 			Debug.Log("Player data not complete!");
@@ -63,44 +67,74 @@ public class PlayerData : MonoBehaviour
 	{
 		Debug.Log(error.GenerateErrorReport());
 	}
-
-	public void SavePlayerData(float health, int expi, int coin, int diamond)
+	
+	public void RegisterPlayerData(float health, int expi)
+	{
+		ResetData();
+		AddSpaceshipBaseData();
+		var requestUserData = new UpdateUserDataRequest
+		{
+			Data = new Dictionary<string, string> {
+				{"MaxHealth", health.ToString() },
+				{"Expi", expi.ToString() },
+				{"Spaceships", JsonConvert.SerializeObject(spaceships) }
+			}
+		};
+		PlayFabClientAPI.UpdateUserData(requestUserData, OnDataRegister, OnError);
+		
+		
+		SetPlayerHighestScore(0);
+	}
+	
+	private void OnDataRegister(UpdateUserDataResult result)
+	{
+		Debug.Log("Successful data Register!");
+		//GetPlayerData();
+	}
+	
+	public void AddDisplayName(Text displaynameTxt)
+	{
+		PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest { DisplayName = displaynameTxt.text }, OnDisplayName, OnErrorDisplayname);
+	}
+	
+	private void OnDisplayName(UpdateUserTitleDisplayNameResult result)
+	{
+		Debug.Log("Displayname added! " + result.DisplayName);
+		displayname = result.DisplayName;
+		SceneManager.LoadScene("Menu");
+	}
+	
+	private void OnErrorDisplayname(PlayFabError error)
+	{
+		if (error.Error == PlayFabErrorCode.NameNotAvailable)
+        {
+            Debug.Log("Name is already taken, please pick another name");
+            //your logic
+        }
+	}
+	
+	public void SavePlayerData(float health, int expi)
 	{
 		var requestUserData = new UpdateUserDataRequest
 		{
 			Data = new Dictionary<string, string> {
-				{"MaxHealth", (_maxHealth + health).ToString() },
-				{"Expi", (_totalXP + expi).ToString() }
-				
+				{"MaxHealth", health.ToString() },
+				{"Expi", expi.ToString() },
+				{"Spaceships", JsonConvert.SerializeObject(spaceships) }
 			}
 		};
-		PlayFabClientAPI.UpdateUserData(requestUserData, OnDataSend, OnError);
-		
-		// var requestVirtualCurrencyCoin = new AddUserVirtualCurrencyRequest { VirtualCurrency = "CO", Amount = coin };
-		// PlayFabClientAPI.AddUserVirtualCurrency(requestVirtualCurrencyCoin, OnModifyCurrencyCoin, OnError);
-
-		// var requestVirtualCurrencyDiamond = new AddUserVirtualCurrencyRequest { VirtualCurrency = "DI", Amount = diamond };
-		// PlayFabClientAPI.AddUserVirtualCurrency(requestVirtualCurrencyDiamond, OnModifyCurrencyDiamond, OnError);
+		PlayFabClientAPI.UpdateUserData(requestUserData, OnDataSave, OnError);
 	}
 	
-	
-
-	private void OnDataSend(UpdateUserDataResult result)
+	private void OnDataSave(UpdateUserDataResult result)
 	{
-		Debug.Log("Successful data send!");
-		GetPlayerData();
+		Debug.Log("Successful data Save!");
+		//GetPlayerData();
 	}
+	
 
-	// private void OnModifyCurrencyCoin(ModifyUserVirtualCurrencyResult result)
-	// {
-	// 	_coins = result.Balance;
-	// }
-	// private void OnModifyCurrencyDiamond(ModifyUserVirtualCurrencyResult result)
-	// {
-	// 	_diamonds = result.Balance;
-	// }
 
-	public void GetCoin()
+	public void GetCoinDiamond()
 	{
 		PlayFabClientAPI.GetUserInventory(new GetUserInventoryRequest(), OnReceivedCoin, OnError);
 	}
@@ -136,7 +170,7 @@ public class PlayerData : MonoBehaviour
 		//check highestscore if null after monthly reset
 		if(result.Statistics.Count > 0)
 		{
-			_highestScore = result.Statistics[1].Value;
+			_highestScore = result.Statistics[0].Value;
 		}
 		else
 		{
@@ -151,12 +185,28 @@ public class PlayerData : MonoBehaviour
 			VirtualCurrency = "CO",
 			Amount = goldAmount
 		};
-		PlayFabClientAPI.AddUserVirtualCurrency(requestGold, OncoinSuccess, OnError);
+		PlayFabClientAPI.AddUserVirtualCurrency(requestGold, OnCoinAddSuccess, OnError);
 	}
 	
-	private void OncoinSuccess(ModifyUserVirtualCurrencyResult result)
+	private void OnCoinAddSuccess(ModifyUserVirtualCurrencyResult result)
 	{
 		Debug.Log("Coin Added");
+	}
+	
+	public void SubtractCoin(int goldAmount)
+	{
+		var requestGold = new SubtractUserVirtualCurrencyRequest{
+			VirtualCurrency = "CO",
+			Amount = goldAmount
+		};
+		PlayFabClientAPI.SubtractUserVirtualCurrency(requestGold, OnCoinSubtractSuccess, OnError);
+	}
+	
+	private void OnCoinSubtractSuccess(ModifyUserVirtualCurrencyResult result)
+	{
+		Debug.Log("Coin Subtracted");
+		//result.VirtualCurrency.TryGetValue("CO", out _coins);
+		_coins = result.Balance;
 	}
 	
 	//add diamond
@@ -198,8 +248,7 @@ public class PlayerData : MonoBehaviour
 		
 	}
 	
-	public int xpNeedToLevelUp;
-	public int targetXP;
+	
 	private void LevelDesign()
 	{
 		GetPlayerData();
@@ -217,26 +266,35 @@ public class PlayerData : MonoBehaviour
 	}
 	
 	
-	
-	
-	//handle for level and expi needed
-	// public void AddXP(int xpToAdd)
-	// {
-	// 	AddXPToServer(xpToAdd);
-	// 	currentXP += xpToAdd;
-	// 	_totalXP += xpToAdd;
-	// 	while(currentXP >= targetXP)
-	// 	{
-	// 		currentXP = currentXP - targetXP;
-	// 		_level++;
-	// 		targetXP += targetXP / 3;
-	// 		//targetXP = targetXP * 0.2f + targetXP;
-	// 	}
-	// 	xpNeedToLevelUp = targetXP - currentXP;
+	IEnumerator SceneMenu(float waitTime)
+	{
+		yield return new WaitForSeconds(waitTime);
 		
-	// 	//SavePlayerData(_maxHealth, _level, _totalXP, _coins, _diamonds);
+	}
+	
+	public void AddSpaceshipBaseData()
+    {
+        spaceships.Add(new Spaceship("SS-Mars", "Spaceship Mars", 1, 5));
+        spaceships.Add(new Spaceship("HWSS-Mani", "Heavy Weight Spaceship Mani", 0, 10));
+        spaceships.Add(new Spaceship("LWSS-Edsa", "Light Weight Spaceship Edsa", 0, 15));
+        spaceships.Add(new Spaceship("BSS", "Battle Spaceship", 0, 20));
+        spaceships.Add(new Spaceship("HMS-Marites", "Her Majesty's Ship Marites", 0, 25));
+        spaceships.Add(new Spaceship("ISS-Digs", "Imperial Spaceship Digs", 0, 30));
+    }
+	
+	void ResetData()
+	{
+		_maxHealth = 100;
+		_totalXP = 0;
+		_coins = 0;
+		_diamonds = 0;
+		_highestScore = 0;
+		_level = 0;
+		xpNeedToLevelUp = 0;
+		targetXP = 0;
+		spaceships.Clear();
 		
-	// }
+	}
 	
 
 

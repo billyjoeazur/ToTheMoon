@@ -12,9 +12,11 @@ public class FacebookLogin : MonoBehaviour
 {
 	public static FacebookLogin instance;
 	public PlayerData playerData;
+	
 
 	public string AuthTicket;
 	public Sprite dp;
+	public GameObject addDisplaynamePanel;
 
 	private void Awake()
 	{
@@ -113,13 +115,17 @@ public class FacebookLogin : MonoBehaviour
 		if (string.IsNullOrEmpty(result.PlayerProfile.DisplayName)) //Check if it is a new playfab player.
 		{
 			Debug.Log("New player registered!");
-			RegisterNewPlayerToPlayfab();
+			playerData.RegisterPlayerData(100, 0);
+			addDisplaynamePanel.SetActive(true);
+			
+			//StartCoroutine(LoadStartScene(5f));
 		}
 		else
 		{
 			Debug.Log("old player login!");
-			playerData.GetPlayerData();
-			StartCoroutine(LoadStartScene(5f));
+			//playerData.GetPlayerData();
+			playerData.displayname = result.PlayerProfile.DisplayName;
+			StartCoroutine(LoadStartScene(3f));
 		}
 		
 	}
@@ -148,8 +154,8 @@ public class FacebookLogin : MonoBehaviour
 		if (result.Error == null)
 		{
 			string name = "" + result.ResultDictionary["first_name"];
-			playerData.displayname = name;
-			Debug.Log("" + name);
+			//playerData.displayname = name;
+			//Debug.Log("" + name);
 		}
 		else
 		{
@@ -169,46 +175,10 @@ public class FacebookLogin : MonoBehaviour
 			Debug.Log(result.Error);
 		}
 	}
-
-	void RegisterNewPlayerToPlayfab()
-	{
-		var requestAddUserData = new UpdateUserDataRequest
-		{
-			Data = new Dictionary<string, string>
-			{
-				{"MaxHealth", playerData._maxHealth.ToString() },
-				{"Expi", playerData._totalXP.ToString() }
-			}
-		};
-
-		PlayFabClientAPI.UpdateUserData(requestAddUserData, OnAddUserDataSuccess, OnError);
-
-		PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest { DisplayName = playerData.displayname }, OnDisplayName, OnError);
-
-		playerData._maxHealth = 100;
-		playerData._totalXP = 0;
-		playerData._coins = 0;
-		playerData._highestScore = 0;
-		playerData.SavePlayerData(100, 0, 0, 0);
-		playerData.SetPlayerHighestScore(0);
-
-		StartCoroutine(LoadStartScene(2f));
-
-	}
-
-	IEnumerator LoadStartScene(float waitTime)
+	
+	public IEnumerator LoadStartScene(float waitTime)
 	{
 		yield return new WaitForSeconds(waitTime);
 		SceneManager.LoadScene("Menu");
-	}
-
-	private void OnAddUserDataSuccess(UpdateUserDataResult result)
-	{
-		Debug.Log("Playerdata Added!");
-	}
-
-	private void OnDisplayName(UpdateUserTitleDisplayNameResult result)
-	{
-		Debug.Log("Displayname added!");
 	}
 }

@@ -2231,7 +2231,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1629618192}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: ProfileScene
+        m_MethodName: ShopScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

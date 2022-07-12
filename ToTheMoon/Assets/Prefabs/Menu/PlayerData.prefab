@@ -43,9 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e04a7ce73431f4d8c132a64e05bd50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayname: 
+  loadManager: {fileID: 6682582170380305413, guid: 988fb82c999323e4c986fe43a1ed799d, type: 3}
+  displayname: bushet
   _maxHealth: 100
-  _expi: 0
-  _coins: 1000
+  _coins: 0
   _diamonds: 0
   _highestScore: 0
+  _level: 0
+  _totalXP: 0
+  xpNeedToLevelUp: 0
+  targetXP: 0
