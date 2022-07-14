@@ -11,19 +11,12 @@ using System;
 public class PlayerData : MonoBehaviour
 {
 	public static PlayerData instance;
-
-	public string displayname;
-	public float _maxHealth;
+	
+	public Player player = new Player("", 100, 1, 0, 100, 0);
+	public List<Spaceship> spaceships = new List<Spaceship>();
 	public int _coins;
 	public int _diamonds;
 	public int _highestScore;
-	public int _level;
-	public int _totalXP;
-	public int xpNeedToLevelUp;
-	public int targetXP;
-	public List<Spaceship> spaceships = new List<Spaceship>();
-	
-	
 	
 	private void Awake()
 	{
@@ -53,10 +46,9 @@ public class PlayerData : MonoBehaviour
 	private void OnDataRecieved(GetUserDataResult result)
 	{
 		Debug.Log("Received user data!");
-		if (result.Data != null && result.Data.ContainsKey("MaxHealth") && result.Data.ContainsKey("Expi"))
+		if (result.Data != null && result.Data.ContainsKey("Player") && result.Data.ContainsKey("Spaceships"))
 		{
-			_maxHealth = float.Parse(result.Data["MaxHealth"].Value);
-			_totalXP = int.Parse(result.Data["Expi"].Value);
+			player = JsonConvert.DeserializeObject<Player>(result.Data["Player"].Value);
 			spaceships = JsonConvert.DeserializeObject<List<Spaceship>>(result.Data["Spaceships"].Value);
 		}
 		else
@@ -68,20 +60,18 @@ public class PlayerData : MonoBehaviour
 		Debug.Log(error.GenerateErrorReport());
 	}
 	
-	public void RegisterPlayerData(float health, int expi)
+	public void RegisterPlayerData()
 	{
 		ResetData();
 		AddSpaceshipBaseData();
 		var requestUserData = new UpdateUserDataRequest
 		{
 			Data = new Dictionary<string, string> {
-				{"MaxHealth", health.ToString() },
-				{"Expi", expi.ToString() },
+				{"Player", JsonConvert.SerializeObject(player) },
 				{"Spaceships", JsonConvert.SerializeObject(spaceships) }
 			}
 		};
 		PlayFabClientAPI.UpdateUserData(requestUserData, OnDataRegister, OnError);
-		
 		
 		SetPlayerHighestScore(0);
 	}
@@ -89,7 +79,7 @@ public class PlayerData : MonoBehaviour
 	private void OnDataRegister(UpdateUserDataResult result)
 	{
 		Debug.Log("Successful data Register!");
-		//GetPlayerData();
+		// GetPlayerData();
 	}
 	
 	public void AddDisplayName(Text displaynameTxt)
@@ -100,7 +90,8 @@ public class PlayerData : MonoBehaviour
 	private void OnDisplayName(UpdateUserTitleDisplayNameResult result)
 	{
 		Debug.Log("Displayname added! " + result.DisplayName);
-		displayname = result.DisplayName;
+		player.displayname = result.DisplayName;
+		SavePlayerData();
 		SceneManager.LoadScene("Menu");
 	}
 	
@@ -113,13 +104,12 @@ public class PlayerData : MonoBehaviour
         }
 	}
 	
-	public void SavePlayerData(float health, int expi)
+	public void SavePlayerData()
 	{
 		var requestUserData = new UpdateUserDataRequest
 		{
 			Data = new Dictionary<string, string> {
-				{"MaxHealth", health.ToString() },
-				{"Expi", expi.ToString() },
+				{"Player", JsonConvert.SerializeObject(player) },
 				{"Spaceships", JsonConvert.SerializeObject(spaceships) }
 			}
 		};
@@ -131,8 +121,6 @@ public class PlayerData : MonoBehaviour
 		Debug.Log("Successful data Save!");
 		//GetPlayerData();
 	}
-	
-
 
 	public void GetCoinDiamond()
 	{
@@ -191,6 +179,7 @@ public class PlayerData : MonoBehaviour
 	private void OnCoinAddSuccess(ModifyUserVirtualCurrencyResult result)
 	{
 		Debug.Log("Coin Added");
+		_coins = result.Balance;
 	}
 	
 	public void SubtractCoin(int goldAmount)
@@ -205,7 +194,6 @@ public class PlayerData : MonoBehaviour
 	private void OnCoinSubtractSuccess(ModifyUserVirtualCurrencyResult result)
 	{
 		Debug.Log("Coin Subtracted");
-		//result.VirtualCurrency.TryGetValue("CO", out _coins);
 		_coins = result.Balance;
 	}
 	
@@ -216,60 +204,13 @@ public class PlayerData : MonoBehaviour
 			VirtualCurrency = "DI",
 			Amount = diamondAmount
 		};
-		PlayFabClientAPI.AddUserVirtualCurrency(requestDiamond, OndiamondSuccess, OnError);
+		PlayFabClientAPI.AddUserVirtualCurrency(requestDiamond, OnDiamondSuccess, OnError);
 	}
 	
-	private void OndiamondSuccess(ModifyUserVirtualCurrencyResult result)
+	private void OnDiamondSuccess(ModifyUserVirtualCurrencyResult result)
 	{
 		Debug.Log("Diamond Added");
-	}
-	
-	//add XP to server
-	public void AddXPToServer(int expi)
-	{
-		
-		var requestUserData = new UpdateUserDataRequest
-		{
-			Data = new Dictionary<string, string> {
-				{"Expi", (_totalXP + expi).ToString() }
-			}
-		};
-		PlayFabClientAPI.UpdateUserData(requestUserData, OnXPSend, OnError);
-		
-		
-	}
-	
-	private void OnXPSend(UpdateUserDataResult result)
-	{
-		Debug.Log("Successful XP send!");
-		
-		LevelDesign();
-		
-		
-	}
-	
-	
-	private void LevelDesign()
-	{
-		GetPlayerData();
-		xpNeedToLevelUp = 0;
-		targetXP = 100;
-		_level = 1;
-		while(_totalXP >= targetXP)
-		{
-			_totalXP = _totalXP - targetXP;
-			_level++;
-			targetXP += targetXP / 3;
-			//targetXP = targetXP * 0.2f + targetXP;
-		}
-		xpNeedToLevelUp = targetXP - _totalXP;
-	}
-	
-	
-	IEnumerator SceneMenu(float waitTime)
-	{
-		yield return new WaitForSeconds(waitTime);
-		
+		_diamonds = result.Balance;
 	}
 	
 	public void AddSpaceshipBaseData()
@@ -284,16 +225,10 @@ public class PlayerData : MonoBehaviour
 	
 	void ResetData()
 	{
-		_maxHealth = 100;
-		_totalXP = 0;
 		_coins = 0;
 		_diamonds = 0;
 		_highestScore = 0;
-		_level = 0;
-		xpNeedToLevelUp = 0;
-		targetXP = 0;
 		spaceships.Clear();
-		
 	}
 	
 

@@ -60,10 +60,10 @@ public class ShopManager : MonoBehaviour
         {
             playerData._coins -= playerData.spaceships[btnNo].currentPrice;
             playerData.SubtractCoin(playerData.spaceships[btnNo].currentPrice);
-            //playerData.GetCoinDiamond();
             playerData.spaceships[btnNo].currentPrice += playerData.spaceships[btnNo].currentPrice * 3;
             playerData.spaceships[btnNo].level++;
-            playerData.SavePlayerData(playerData._maxHealth, playerData._totalXP);
+            playerData.player.equipedSpaceship = btnNo;
+            playerData.SavePlayerData();
             for (int i = 0; i < playerData.spaceships.Count; i++)
             {
                 buyBtn[i].interactable = false;

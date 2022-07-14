@@ -12,39 +12,39 @@ public class CharacterShoot : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetString("CurrentGun", "gun4");
+        //PlayerPrefs.SetString("CurrentGun", "gun4");
     }
 
     void Update()
     {
         Timer -= Time.deltaTime;
-        PlayerPrefs.SetString("MyGun", PlayerPrefs.GetString("CurrentGun"));
+        PlayerPrefs.SetInt("SpaceshipEquiped", PlayerPrefs.GetInt("CurrentSpaceship"));
 
         if (Timer <= 0f)
         {
             //kind of bullets
-            if (PlayerPrefs.GetString("MyGun") == "") //normal bullet
+            if (PlayerPrefs.GetInt("SpaceshipEquiped") == 0) //normal bullet
             {
                 CharacterBullet bulletGO = Instantiate(bulletPrefab[0]);
                 bulletGO.transform.position = spawnspot.position;
                 bulletGO.Init(100f, 1f);
                 Timer = 0.3f;
             }
-            else if(PlayerPrefs.GetString("MyGun") == "gun1") //knock back enemy
+            else if(PlayerPrefs.GetInt("SpaceshipEquiped") == 1) //knock back enemy
             {
                 CharacterBullet bulletGO = Instantiate(bulletPrefab[1]);
                 bulletGO.transform.position = spawnspot.position;
                 bulletGO.Init(70f, 1f);
                 Timer = 0.3f;
             }
-            else if (PlayerPrefs.GetString("MyGun") == "gun2") //slow enemy
+            else if (PlayerPrefs.GetInt("SpaceshipEquiped") == 2) //slow enemy
             {
                 CharacterBullet bulletGO = Instantiate(bulletPrefab[2]);
                 bulletGO.transform.position = spawnspot.position;
                 bulletGO.Init(50f, 1f);
                 Timer = 0.3f;
             }
-            else if (PlayerPrefs.GetString("MyGun") == "gun3") //penetrate enemy
+            else if (PlayerPrefs.GetInt("SpaceshipEquiped") == 3) //penetrate enemy
             {
                 CharacterBullet bulletGO = Instantiate(bulletPrefab[3]);
                 bulletGO.transform.position = spawnspot.position;
@@ -52,7 +52,7 @@ public class CharacterShoot : MonoBehaviour
                 Timer = 0.3f;
             }
             
-            if (PlayerPrefs.GetString("MyGun") == "gun4") //normal bullet
+            if (PlayerPrefs.GetInt("SpaceshipEquiped") == 4) //normal bullet
             {
                 CharacterBullet bulletGO = Instantiate(bulletPrefab[4]);
                 bulletGO.transform.position = spawnspot.position;
@@ -60,7 +60,7 @@ public class CharacterShoot : MonoBehaviour
                 Timer = 0.3f;
             }
             
-            else if (PlayerPrefs.GetString("MyGun") == "gun5") //shower
+            else if (PlayerPrefs.GetInt("SpaceshipEquiped") == 5) //shower
             {
                 // CharacterBullet bulletGO = Instantiate(bulletPrefab[0]);
                 // bulletGO.transform.position = spawnspot.position;

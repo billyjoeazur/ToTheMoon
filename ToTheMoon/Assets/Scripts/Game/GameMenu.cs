@@ -9,7 +9,7 @@ using PlayFab.ClientModels;
 public class GameMenu : MonoBehaviour
 {
     public Text scoreText, highscoreText, coins, diamonds, expi;
-    public Player player;
+    public Character character;
     public PlayerData playerData;
     
     [SerializeField] RewardedAdsButton rewardedAdsButton;
@@ -17,7 +17,7 @@ public class GameMenu : MonoBehaviour
     bool _coinAdded = false;
     bool _diamondAdded = false;
     bool _expiAdded = false;
-    //bool _highScoreAdded = false;
+    
     void Start()
     {
         
@@ -36,37 +36,38 @@ public class GameMenu : MonoBehaviour
             
             scoreText.text = "SCORE: " + PlayerPrefs.GetInt("CurrentScore").ToString();
             highscoreText.text =  "HIGHSCORE: " + playerData._highestScore.ToString();
-            coins.text = "GOLD: " + player.currentCoin.ToString();
-            diamonds.text = "DIAMOND: " + player.currentDiamond.ToString();
+            coins.text = "GOLD: " + character.currentCoin.ToString();
+            diamonds.text = "DIAMOND: " + character.currentDiamond.ToString();
             expi.text = PlayerPrefs.GetInt("CurrentXP").ToString();
+            
             //add new highscore
-            if (player.isNewHighscore)
+            if (character.isNewHighscore)
             {
                 playerData.SetPlayerHighestScore(playerData._highestScore);
-                player.isNewHighscore = false;
+                character.isNewHighscore = false;
             }
             
             //add goldcoin
             if (!_coinAdded)
             {
-                playerData.AddCoin(player.currentCoin);
+                playerData.AddCoin(character.currentCoin);
                 _coinAdded = true;
             }
             
             //add diamond
             if (!_diamondAdded)
             {
-                playerData.AddDiamond(player.currentDiamond);
+                playerData.AddDiamond(character.currentDiamond);
                 _diamondAdded = true;
             }
             
             if (!_expiAdded)
             {
-                playerData.AddXPToServer(PlayerPrefs.GetInt("CurrentXP"));
+                //playerData.AddXPToServer(PlayerPrefs.GetInt("CurrentXP"));
+                playerData.player.experience += PlayerPrefs.GetInt("CurrentXP");
+                playerData.SavePlayerData();
                 _expiAdded = true;
             }
-            
-            
         }
     }
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class Character : MonoBehaviour
 {
-    public static Player instance;
+    public static Character instance;
     public PlayerData playerData;
 
     public float maxHealth;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     
     void Awake()
     {
-        maxHealth = playerData._maxHealth;
+        maxHealth = playerData.player.maxHealth;
         PlayerPrefs.SetInt("BossLevel", 0);
         PlayerPrefs.SetInt("CurrentScore", 0);
         PlayerPrefs.SetInt("CurrentXP", 0);
@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
-    
 
     void Update()
     {

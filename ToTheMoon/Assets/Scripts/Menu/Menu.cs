@@ -17,15 +17,9 @@ public class Menu : MonoBehaviour
 	public Text displayname;
 	public Image dp;
 	
-	
 	public PlayerData playerData;
 	public FacebookLogin fbLogin;
 	public HealthBar expiBar;
-	
-	// int level = 1;
-	// int currentXP;
-	// int targetXP = 100;
-	// int xpNeedToLevelUp;
 	
 	private void Awake()
 	{
@@ -33,33 +27,30 @@ public class Menu : MonoBehaviour
 		playerData.GetCoinDiamond();
 		playerData.GetHighestScore();
 		fbLogin = FindObjectOfType<FacebookLogin>().GetComponent<FacebookLogin>();
-		displayname.text = playerData.displayname;
+		displayname.text = playerData.player.displayname;
 		dp.sprite = fbLogin.dp;
-		playerData.AddXPToServer(0);
 	}
 	void Start()
     {
-		
-		
-		expiBar.SetMaxHealth(playerData.targetXP);
-		expiBar.SetHealth(playerData.xpNeedToLevelUp);
+		PlayerPrefs.SetInt("CurrentSpaceship", playerData.player.equipedSpaceship);
+		print(playerData.player.displayname);
 	}
 	
-	public void AddXPBtn()
-	{
-		playerData.AddXPToServer(5);
-	}
-
     void Update()
     {
-		hp.text = playerData._maxHealth.ToString();
-		
+		UpdateUI();
+	}
+	
+	void UpdateUI()
+	{
+		hp.text = playerData.player.maxHealth.ToString();
 		coinT.text = playerData._coins.ToString();
 		diamondT.text = playerData._diamonds.ToString();
 		hscore.text = "Highest Score: " + playerData._highestScore.ToString();
-		xpNeedToLevelUpText.text = playerData.xpNeedToLevelUp.ToString();
-		lvlText.text = " Level: " + playerData._level.ToString();
-		
+		lvlText.text = " Level: " + playerData.player.level.ToString();
+		xpNeedToLevelUpText.text = playerData.player.GetExperienceToLevelUp(playerData.player).ToString();
+		expiBar.SetMaxHealth(playerData.player.targetExperience);
+		expiBar.SetHealth(playerData.player.GetExperienceToLevelUp(playerData.player));
 	}
 
 	public void LeaderboardScene()
@@ -81,12 +72,4 @@ public class Menu : MonoBehaviour
 	{
 		SceneManager.LoadScene("Shop");
 	}
-	
-	
-
-	//public int goldAmount;
-	
-
-	
-
 }

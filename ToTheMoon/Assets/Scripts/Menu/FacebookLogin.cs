@@ -115,7 +115,7 @@ public class FacebookLogin : MonoBehaviour
 		if (string.IsNullOrEmpty(result.PlayerProfile.DisplayName)) //Check if it is a new playfab player.
 		{
 			Debug.Log("New player registered!");
-			playerData.RegisterPlayerData(100, 0);
+			playerData.RegisterPlayerData();
 			addDisplaynamePanel.SetActive(true);
 			
 			//StartCoroutine(LoadStartScene(5f));
@@ -124,7 +124,7 @@ public class FacebookLogin : MonoBehaviour
 		{
 			Debug.Log("old player login!");
 			//playerData.GetPlayerData();
-			playerData.displayname = result.PlayerProfile.DisplayName;
+			playerData.player.displayname = result.PlayerProfile.DisplayName;
 			StartCoroutine(LoadStartScene(3f));
 		}
 		

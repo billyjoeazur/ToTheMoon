@@ -1608,7 +1608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47705b715270d66449908903d9c86b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 4
 --- !u!114 &818880541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1669,7 +1669,7 @@ MonoBehaviour:
   _showAdButton: {fileID: 912444477}
   _androidAdUnitId: Rewarded_Android
   _iOSAdUnitId: Rewarded_iOS
-  player: {fileID: 818880541}
+  character: {fileID: 818880541}
   playerData: {fileID: 5609275764425747696, guid: f54ac11a10a7d4740b7b031f8483826e, type: 3}
 --- !u!114 &912444477
 MonoBehaviour:
@@ -3366,7 +3366,7 @@ MonoBehaviour:
   coins: {fileID: 568332697}
   diamonds: {fileID: 1568350413}
   expi: {fileID: 1885184596}
-  player: {fileID: 818880541}
+  character: {fileID: 818880541}
   playerData: {fileID: 5609275764425747696, guid: f54ac11a10a7d4740b7b031f8483826e, type: 3}
   rewardedAdsButton: {fileID: 912444476}
 --- !u!1 &1986107312
