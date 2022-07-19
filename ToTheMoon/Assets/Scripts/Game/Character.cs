@@ -22,6 +22,8 @@ public class Character : MonoBehaviour
     public GameObject GameMenuPanel, newHighscore;
     public bool isNewHighscore = false;
     
+    public GameObject[] spaceshipsObj;
+    
     void Awake()
     {
         maxHealth = playerData.player.maxHealth;
@@ -29,6 +31,7 @@ public class Character : MonoBehaviour
         PlayerPrefs.SetInt("CurrentScore", 0);
         PlayerPrefs.SetInt("CurrentXP", 0);
         Time.timeScale = 1f;
+        spaceshipsObj[playerData.player.equipedSpaceship].SetActive(true);
     }
 
     void Start()
@@ -44,6 +47,7 @@ public class Character : MonoBehaviour
         scoreText.text = PlayerPrefs.GetInt("CurrentScore").ToString();
         healthBar.SetHealth(currentHealth);
         expiText.text = PlayerPrefs.GetInt("CurrentXP").ToString();
+        
         //game over
         if(currentHealth <= 0)
         {
