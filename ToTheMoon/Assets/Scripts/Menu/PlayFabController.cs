@@ -8,20 +8,20 @@ using PlayFab.ClientModels;
 using Newtonsoft.Json;
 using System;
 
-public class PlayerData : MonoBehaviour
+public class PlayFabController : MonoBehaviour
 {
-	public static PlayerData instance;
+	public static PlayFabController playFabController;
 	
-	public Player player = new Player("", 100, 1, 0, 100, 0);
-	public List<Spaceship> spaceships = new List<Spaceship>();
-	public int _coins;
-	public int _diamonds;
-	public int _highestScore;
+	public PlayerSO playerSO;
+	public ShopSO shopSO;
+	public Player playerRegister = new Player("", 100, 1, 0, 100, 0);
+	public List<Spaceship> spaceshipsRegister = new List<Spaceship>();
+	public Sprite avatar;
 	
 	private void Awake()
 	{
-		if (instance == null)
-			instance = this;
+		if (playFabController == null)
+			playFabController = this;
 		else
 		{
 			Destroy(gameObject);
@@ -35,7 +35,7 @@ public class PlayerData : MonoBehaviour
 	{
 		
 	}
-
+	
 	#region
 
 	public void GetPlayerData()
@@ -48,8 +48,8 @@ public class PlayerData : MonoBehaviour
 		Debug.Log("Received user data!");
 		if (result.Data != null && result.Data.ContainsKey("Player") && result.Data.ContainsKey("Spaceships"))
 		{
-			player = JsonConvert.DeserializeObject<Player>(result.Data["Player"].Value);
-			spaceships = JsonConvert.DeserializeObject<List<Spaceship>>(result.Data["Spaceships"].Value);
+			playerSO.PlayerDataUpdate(JsonConvert.DeserializeObject<Player>(result.Data["Player"].Value));
+			shopSO.SpaceshipUpdate(JsonConvert.DeserializeObject<List<Spaceship>>(result.Data["Spaceships"].Value));
 		}
 		else
 			Debug.Log("Player data not complete!");
@@ -62,13 +62,12 @@ public class PlayerData : MonoBehaviour
 	
 	public void RegisterPlayerData()
 	{
-		ResetData();
 		AddSpaceshipBaseData();
 		var requestUserData = new UpdateUserDataRequest
 		{
 			Data = new Dictionary<string, string> {
-				{"Player", JsonConvert.SerializeObject(player) },
-				{"Spaceships", JsonConvert.SerializeObject(spaceships) }
+				{"Player", JsonConvert.SerializeObject(playerRegister) },
+				{"Spaceships", JsonConvert.SerializeObject(spaceshipsRegister) }
 			}
 		};
 		PlayFabClientAPI.UpdateUserData(requestUserData, OnDataRegister, OnError);
@@ -79,20 +78,21 @@ public class PlayerData : MonoBehaviour
 	private void OnDataRegister(UpdateUserDataResult result)
 	{
 		Debug.Log("Successful data Register!");
-		// GetPlayerData();
+		GetPlayerData();
 	}
 	
 	public void AddDisplayName(Text displaynameTxt)
 	{
 		PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest { DisplayName = displaynameTxt.text }, OnDisplayName, OnErrorDisplayname);
+		
 	}
 	
 	private void OnDisplayName(UpdateUserTitleDisplayNameResult result)
 	{
 		Debug.Log("Displayname added! " + result.DisplayName);
-		player.displayname = result.DisplayName;
+		playerSO.player.displayname = result.DisplayName;
 		SavePlayerData();
-		SceneManager.LoadScene("Menu");
+		GameObject.Find("FacebookLogin").GetComponent<SceneController>().GoScene("Menu");
 	}
 	
 	private void OnErrorDisplayname(PlayFabError error)
@@ -109,8 +109,8 @@ public class PlayerData : MonoBehaviour
 		var requestUserData = new UpdateUserDataRequest
 		{
 			Data = new Dictionary<string, string> {
-				{"Player", JsonConvert.SerializeObject(player) },
-				{"Spaceships", JsonConvert.SerializeObject(spaceships) }
+				{"Player", JsonConvert.SerializeObject(playerSO.player) },
+				{"Spaceships", JsonConvert.SerializeObject(shopSO.spaceships) } 
 			}
 		};
 		PlayFabClientAPI.UpdateUserData(requestUserData, OnDataSave, OnError);
@@ -119,7 +119,7 @@ public class PlayerData : MonoBehaviour
 	private void OnDataSave(UpdateUserDataResult result)
 	{
 		Debug.Log("Successful data Save!");
-		//GetPlayerData();
+		GetPlayerData();
 	}
 
 	public void GetCoinDiamond()
@@ -129,8 +129,9 @@ public class PlayerData : MonoBehaviour
 
 	private void OnReceivedCoin(GetUserInventoryResult result)
 	{
-		result.VirtualCurrency.TryGetValue("CO", out _coins);
-		result.VirtualCurrency.TryGetValue("DI", out _diamonds);
+		result.VirtualCurrency.TryGetValue("CO", out shopSO._coins);
+		result.VirtualCurrency.TryGetValue("DI", out shopSO._diamonds);
+		print("getcoindiamondmethod");
 	}
 
 	public void SetPlayerHighestScore(int score)
@@ -158,7 +159,7 @@ public class PlayerData : MonoBehaviour
 		//check highestscore if null after monthly reset
 		if(result.Statistics.Count > 0)
 		{
-			_highestScore = result.Statistics[0].Value;
+			playerSO.highestScore = result.Statistics[0].Value;
 		}
 		else
 		{
@@ -179,7 +180,7 @@ public class PlayerData : MonoBehaviour
 	private void OnCoinAddSuccess(ModifyUserVirtualCurrencyResult result)
 	{
 		Debug.Log("Coin Added");
-		_coins = result.Balance;
+		shopSO._coins = result.Balance;
 	}
 	
 	public void SubtractCoin(int goldAmount)
@@ -194,7 +195,7 @@ public class PlayerData : MonoBehaviour
 	private void OnCoinSubtractSuccess(ModifyUserVirtualCurrencyResult result)
 	{
 		Debug.Log("Coin Subtracted");
-		_coins = result.Balance;
+		shopSO._coins = result.Balance;
 	}
 	
 	//add diamond
@@ -210,30 +211,19 @@ public class PlayerData : MonoBehaviour
 	private void OnDiamondSuccess(ModifyUserVirtualCurrencyResult result)
 	{
 		Debug.Log("Diamond Added");
-		_diamonds = result.Balance;
+		shopSO._diamonds = result.Balance;
 	}
 	
 	public void AddSpaceshipBaseData()
     {
-        spaceships.Add(new Spaceship("SS-Mars", "Spaceship Mars", 1, 5));
-        spaceships.Add(new Spaceship("HWSS-Mani", "Heavy Weight Spaceship Mani", 0, 10));
-        spaceships.Add(new Spaceship("LWSS-Edsa", "Light Weight Spaceship Edsa", 0, 15));
-        spaceships.Add(new Spaceship("BSS", "Battle Spaceship", 0, 20));
-        spaceships.Add(new Spaceship("HMS-Marites", "Her Majesty's Ship Marites", 0, 25));
-        spaceships.Add(new Spaceship("ISS-Digs", "Imperial Spaceship Digs", 0, 30));
+        spaceshipsRegister.Add(new Spaceship("SS-Mars", "Spaceship Mars", 1, 5));
+        spaceshipsRegister.Add(new Spaceship("HWSS-Mani", "Heavy Weight Spaceship Mani", 0, 10));
+        spaceshipsRegister.Add(new Spaceship("LWSS-Edsa", "Light Weight Spaceship Edsa", 0, 15));
+        spaceshipsRegister.Add(new Spaceship("BSS", "Battle Spaceship", 0, 20));
+        spaceshipsRegister.Add(new Spaceship("HMS-Marites", "Her Majesty's Ship Marites", 0, 25));
+        spaceshipsRegister.Add(new Spaceship("ISS-Digs", "Imperial Spaceship Digs", 0, 30));
     }
 	
-	void ResetData()
-	{
-		_coins = 0;
-		_diamonds = 0;
-		_highestScore = 0;
-		spaceships.Clear();
-	}
-	
-
-
-
 	#endregion
 
 	

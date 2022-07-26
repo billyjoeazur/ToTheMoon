@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
     public static Character instance;
-    public PlayerData playerData;
+    public PlayerSO playerSO;
 
     public float maxHealth;
     public float currentHealth;
@@ -26,12 +26,13 @@ public class Character : MonoBehaviour
     
     void Awake()
     {
-        maxHealth = playerData.player.maxHealth;
+        maxHealth = playerSO.player.maxHealth;
         PlayerPrefs.SetInt("BossLevel", 0);
         PlayerPrefs.SetInt("CurrentScore", 0);
         PlayerPrefs.SetInt("CurrentXP", 0);
         Time.timeScale = 1f;
-        spaceshipsObj[playerData.player.equipedSpaceship].SetActive(true);
+        spaceshipsObj[playerSO.player.equipedSpaceship].SetActive(true);
+        PlayerPrefs.SetInt("CurrentSpaceship", playerSO.player.equipedSpaceship);
     }
 
     void Start()
@@ -56,9 +57,9 @@ public class Character : MonoBehaviour
         }
         
         //check highscore
-        if(PlayerPrefs.GetInt("CurrentScore") > playerData._highestScore)
+        if(PlayerPrefs.GetInt("CurrentScore") > playerSO.highestScore)
         {
-            playerData._highestScore = PlayerPrefs.GetInt("CurrentScore");
+            playerSO.highestScore = PlayerPrefs.GetInt("CurrentScore");
             newHighscore.SetActive(true);
             isNewHighscore = true;
         }

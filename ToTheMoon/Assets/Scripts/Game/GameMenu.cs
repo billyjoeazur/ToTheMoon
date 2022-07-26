@@ -10,7 +10,7 @@ public class GameMenu : MonoBehaviour
 {
     public Text scoreText, highscoreText, coins, diamonds, expi;
     public Character character;
-    public PlayerData playerData;
+    public PlayerSO playerSO;
     
     [SerializeField] RewardedAdsButton rewardedAdsButton;
     bool _isDoneLoad = false;
@@ -35,7 +35,7 @@ public class GameMenu : MonoBehaviour
             }
             
             scoreText.text = "SCORE: " + PlayerPrefs.GetInt("CurrentScore").ToString();
-            highscoreText.text =  "HIGHSCORE: " + playerData._highestScore.ToString();
+            highscoreText.text =  "HIGHSCORE: " + playerSO.highestScore.ToString();
             coins.text = "GOLD: " + character.currentCoin.ToString();
             diamonds.text = "DIAMOND: " + character.currentDiamond.ToString();
             expi.text = PlayerPrefs.GetInt("CurrentXP").ToString();
@@ -43,29 +43,29 @@ public class GameMenu : MonoBehaviour
             //add new highscore
             if (character.isNewHighscore)
             {
-                playerData.SetPlayerHighestScore(playerData._highestScore);
+                PlayFabController.playFabController.SetPlayerHighestScore(playerSO.highestScore);
                 character.isNewHighscore = false;
             }
             
             //add goldcoin
             if (!_coinAdded)
             {
-                playerData.AddCoin(character.currentCoin);
+                PlayFabController.playFabController.AddCoin(character.currentCoin);
                 _coinAdded = true;
             }
             
             //add diamond
             if (!_diamondAdded)
             {
-                playerData.AddDiamond(character.currentDiamond);
+                PlayFabController.playFabController.AddDiamond(character.currentDiamond);
                 _diamondAdded = true;
             }
             
             if (!_expiAdded)
             {
-                //playerData.AddXPToServer(PlayerPrefs.GetInt("CurrentXP"));
-                playerData.player.experience += PlayerPrefs.GetInt("CurrentXP");
-                playerData.SavePlayerData();
+                playerSO.player.experience += PlayerPrefs.GetInt("CurrentXP");
+                playerSO.player.GetExperienceToLevelUp(playerSO.player); // add the level and experience
+                PlayFabController.playFabController.SavePlayerData();
                 _expiAdded = true;
             }
         }
@@ -73,11 +73,13 @@ public class GameMenu : MonoBehaviour
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene("Game");
+        Time.timeScale = 1f;
+        this.gameObject.GetComponent<SceneController>().GoScene("Game");
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+        this.gameObject.GetComponent<SceneController>().GoScene("Menu");
     }
 }

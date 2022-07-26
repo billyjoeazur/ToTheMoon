@@ -12,7 +12,7 @@ public class ShopTemplate : MonoBehaviour
     
     void Update()
     {
-        transform.GetChild(1).FindChild(titleTxt.text).gameObject.SetActive(true); //show the spaceship base on its title text
+        transform.GetChild(1).Find(titleTxt.text).gameObject.SetActive(true); //show the spaceship base on its title text
     }
 }
 

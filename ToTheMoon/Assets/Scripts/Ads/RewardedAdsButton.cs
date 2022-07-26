@@ -10,7 +10,6 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     string _adUnitId = null; // This will remain null for unsupported platforms
     
     public Character character;
-    public PlayerData playerData;
  
     void Awake()
     {   
@@ -64,7 +63,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
             Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
             
-            playerData.AddCoin(character.currentCoin);
+            PlayFabController.playFabController.AddCoin(character.currentCoin);
             character.currentCoin += character.currentCoin;
             
             // Load another ad:

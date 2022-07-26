@@ -2839,6 +2839,7 @@ GameObject:
   - component: {fileID: 2056925788}
   - component: {fileID: 2056925787}
   - component: {fileID: 2056925789}
+  - component: {fileID: 2056925790}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -2918,6 +2919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d9e3755b170934581ca43a1d2fa234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSO: {fileID: 11400000, guid: 84371db0efc97fc4092e8373af575b33, type: 2}
+  shopSO: {fileID: 11400000, guid: d759851f200613f488d6bcd82438a9ea, type: 2}
   shopPanels:
   - {fileID: 2378578293442927087}
   - {fileID: 1999727585}
@@ -2942,9 +2945,20 @@ MonoBehaviour:
   - {fileID: 13169084}
   - {fileID: 2097188122}
   - {fileID: 1205198808}
-  playerData: {fileID: 5609275764425747696, guid: f54ac11a10a7d4740b7b031f8483826e, type: 3}
   coinsTxt: {fileID: 1433651779}
   diamondsTxt: {fileID: 370584439}
+--- !u!114 &2056925790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056925785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc40d2e310a58c439a379c51ec5602d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2097188118
 PrefabInstance:
   m_ObjectHideFlags: 0

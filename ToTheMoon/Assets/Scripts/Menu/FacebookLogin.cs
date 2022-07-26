@@ -11,26 +11,17 @@ using Facebook.Unity;
 public class FacebookLogin : MonoBehaviour
 {
 	public static FacebookLogin instance;
-	public PlayerData playerData;
-	
 
 	public string AuthTicket;
 	public Sprite dp;
 	public GameObject addDisplaynamePanel;
+	//public SceneController sceneController;
+	
+	public PlayerSO playerSO;
 
 	private void Awake()
 	{
-		
-		if (instance == null)
-			instance = this;
-		else
-		{
-			Destroy(gameObject);
-			return;
-		}
-
-		DontDestroyOnLoad(gameObject);
-
+		instance = this;
 		FB.Init(OnFBInitComplete, OnFBHideUnity);
 	}
 
@@ -55,7 +46,6 @@ public class FacebookLogin : MonoBehaviour
 			if (FB.IsLoggedIn)
 			{
 				Debug.Log("Facebook is Login!");
-				// Panel_Add.SetActive(true);
 			}
 			else
 			{
@@ -115,17 +105,13 @@ public class FacebookLogin : MonoBehaviour
 		if (string.IsNullOrEmpty(result.PlayerProfile.DisplayName)) //Check if it is a new playfab player.
 		{
 			Debug.Log("New player registered!");
-			playerData.RegisterPlayerData();
+			PlayFabController.playFabController.RegisterPlayerData();
 			addDisplaynamePanel.SetActive(true);
-			
-			//StartCoroutine(LoadStartScene(5f));
 		}
 		else
 		{
 			Debug.Log("old player login!");
-			//playerData.GetPlayerData();
-			playerData.player.displayname = result.PlayerProfile.DisplayName;
-			StartCoroutine(LoadStartScene(3f));
+			gameObject.GetComponent<SceneController>().GoScene("Menu");
 		}
 		
 	}
@@ -155,7 +141,6 @@ public class FacebookLogin : MonoBehaviour
 		{
 			string name = "" + result.ResultDictionary["first_name"];
 			//playerData.displayname = name;
-			//Debug.Log("" + name);
 		}
 		else
 		{
@@ -169,6 +154,7 @@ public class FacebookLogin : MonoBehaviour
 		{
 			Debug.Log("Profile Pic");
 			dp = Sprite.Create(result.Texture, new Rect(0, 0, 128, 128), new Vector2());
+			PlayFabController.playFabController.avatar = dp;
 		}
 		else
 		{
@@ -176,9 +162,10 @@ public class FacebookLogin : MonoBehaviour
 		}
 	}
 	
-	public IEnumerator LoadStartScene(float waitTime)
+	public IEnumerator Delay(float waitTime)
 	{
 		yield return new WaitForSeconds(waitTime);
-		SceneManager.LoadScene("Menu");
+		
 	}
+	
 }
