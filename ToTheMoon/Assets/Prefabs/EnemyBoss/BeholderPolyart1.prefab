@@ -1257,6 +1257,8 @@ GameObject:
   - component: {fileID: 6297414123997364579}
   - component: {fileID: 2657077756789601804}
   - component: {fileID: 5909677857706451718}
+  - component: {fileID: 3630741663004985124}
+  - component: {fileID: 6036663070550636786}
   - component: {fileID: 6297414124006731395}
   - component: {fileID: 21744364663203880}
   - component: {fileID: 8050785001689676743}
@@ -1306,7 +1308,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6297414123997338947}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35c3e1c47f045754d924006e33be9325, type: 3}
   m_Name: 
@@ -1314,13 +1316,43 @@ MonoBehaviour:
   instance: {fileID: 0}
   coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
   diamond: {fileID: 7019530144987985055, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  maxHealth: 3000
+  maxHealth: 50
   currentHealth: 0
   healthBar: {fileID: 1227942821447788847}
   coinToDrop: 1
   scoreToAdd: 2
   xpToAdd: 2
   scatterPrefab: {fileID: 651063643616909187, guid: f8ac9f2559f9aa84b8282fac7e7a5af7, type: 3}
+--- !u!114 &3630741663004985124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297414123997338947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546e5896a0a954742bdffff2eca44b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  currentHealth: 0
+  enemy:
+  - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
+  healthSlider: {fileID: 6876916390552123635}
+--- !u!114 &6036663070550636786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297414123997338947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c11265aafbf6b44a922b73a514778d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDamage: 50
 --- !u!95 &6297414124006731395
 Animator:
   serializedVersion: 3

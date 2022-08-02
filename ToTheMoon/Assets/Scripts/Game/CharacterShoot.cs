@@ -12,14 +12,14 @@ public class CharacterShoot : MonoBehaviour
 
     void Start()
     {
-        //PlayerPrefs.SetString("CurrentGun", "gun4");
         
+        PlayerPrefs.SetInt("SpaceshipEquiped", PlayerPrefs.GetInt("CurrentSpaceship"));
     }
 
     void Update()
     {
         Timer -= Time.deltaTime;
-        PlayerPrefs.SetInt("SpaceshipEquiped", PlayerPrefs.GetInt("CurrentSpaceship"));
+        
 
         if (Timer <= 0f)
         {

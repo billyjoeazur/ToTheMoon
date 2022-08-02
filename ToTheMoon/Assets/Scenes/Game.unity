@@ -184,6 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 37329996}
   - component: {fileID: 37329997}
+  - component: {fileID: 37329998}
   m_Layer: 0
   m_Name: Spawner (2)
   m_TagString: EnemySpawner
@@ -212,7 +213,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37329995}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
   m_Name: 
@@ -234,6 +235,24 @@ MonoBehaviour:
   - {fileID: 7580668613902669503, guid: cdb0811f325f1374a99eb39f70a37d47, type: 3}
   - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
   - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
+  startTimeBtwSpawn: 20
+  decreaseTime: 0.1
+  minimumTime: 18
+--- !u!114 &37329998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37329995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySO:
+  - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
+  - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -2745,6 +2764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1596179687}
   - component: {fileID: 1596179688}
+  - component: {fileID: 1596179689}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: EnemySpawner
@@ -2773,7 +2793,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596179686}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
   m_Name: 
@@ -2795,6 +2815,24 @@ MonoBehaviour:
   - {fileID: 7580668613902669503, guid: cdb0811f325f1374a99eb39f70a37d47, type: 3}
   - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
   - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
+  startTimeBtwSpawn: 20
+  decreaseTime: 0.1
+  minimumTime: 18
+--- !u!114 &1596179689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596179686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySO:
+  - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
+  - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -3919,6 +3957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2037543324}
   - component: {fileID: 2037543325}
+  - component: {fileID: 2037543326}
   m_Layer: 0
   m_Name: Spawner (1)
   m_TagString: EnemySpawner
@@ -3947,7 +3986,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037543323}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
   m_Name: 
@@ -3969,6 +4008,24 @@ MonoBehaviour:
   - {fileID: 7580668613902669503, guid: cdb0811f325f1374a99eb39f70a37d47, type: 3}
   - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
   - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
+  startTimeBtwSpawn: 20
+  decreaseTime: 0.1
+  minimumTime: 18
+--- !u!114 &2037543326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037543323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySO:
+  - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
+  - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
   startTimeBtwSpawn: 20
   decreaseTime: 0.1
   minimumTime: 18
@@ -4188,7 +4245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3967532886886555576, guid: 629df76ec3eb536489f089d86e6ae74f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4342686716423685378, guid: 629df76ec3eb536489f089d86e6ae74f, type: 3}
       propertyPath: m_RootOrder

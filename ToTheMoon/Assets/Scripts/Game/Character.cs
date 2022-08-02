@@ -31,8 +31,10 @@ public class Character : MonoBehaviour
         PlayerPrefs.SetInt("CurrentScore", 0);
         PlayerPrefs.SetInt("CurrentXP", 0);
         Time.timeScale = 1f;
-        spaceshipsObj[playerSO.player.equipedSpaceship].SetActive(true);
-        PlayerPrefs.SetInt("CurrentSpaceship", playerSO.player.equipedSpaceship);
+        // spaceshipsObj[playerSO.player.equipedSpaceship].SetActive(true);
+        spaceshipsObj[0].SetActive(true);
+        // PlayerPrefs.SetInt("CurrentSpaceship", playerSO.player.equipedSpaceship);
+        PlayerPrefs.SetInt("CurrentSpaceship", 0);
     }
 
     void Start()
