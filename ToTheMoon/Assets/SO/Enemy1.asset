@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4984c09737ff47449806f90584ca5a8b, type: 3}
-  m_Name: Beholder
+  m_Name: Enemy1
   m_EditorClassIdentifier: 
   enemyModel: {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
-  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  coinToDrop: 3
-  diamondToDrop: 2
+  maxHealth: 50
+  coinToDrop: 2
+  diamondToDrop: 0
+  scoreToAdd: 10
+  expToAdd: 5

@@ -9,8 +9,8 @@ public class EnemyProfile : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
-    public EnemySO[] enemy;
-    [SerializeField] private Slider healthSlider;
+    public Slider healthSlider;
+    public SpawnEnemy spawn;
     
     [NonSerialized]
     public UnityEvent<float> healthChangedEvent;
@@ -42,11 +42,12 @@ public class EnemyProfile : MonoBehaviour
     public void DestroyEnemy()
     {
         
-        while (c < enemy[0].coinToDrop)
-        {
-            GameObject coin = Instantiate(enemy[0].coinModel, transform.position, Quaternion.identity);
-            c++;
-        }
+        // while (c < enemy[0].coinToDrop)
+        // {
+        //     GameObject coin = Instantiate(enemy[0].coinModel, transform.position, Quaternion.identity);
+        //     c++;
+        // }
+        spawn.DropCoin(transform.position);
         Destroy(gameObject); // destroy this enemy
     }
 }

@@ -183,7 +183,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37329996}
-  - component: {fileID: 37329997}
   - component: {fileID: 37329998}
   m_Layer: 0
   m_Name: Spawner (2)
@@ -206,38 +205,6 @@ Transform:
   m_Father: {fileID: 150729732}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &37329997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 37329995}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy:
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
-  - {fileID: 1700571169596728657, guid: dcccb62f48c55494a8b9dce25f972fdb, type: 3}
-  - {fileID: 156908040098660450, guid: 581750ff9c4aa894692f5888b184edfe, type: 3}
-  - {fileID: 5571081488016988622, guid: 40e4d2c1677e42c44ada2c625fb0da62, type: 3}
-  - {fileID: 1536820214587696530, guid: d5bcead016b8e0143966d89fc0a7cf59, type: 3}
-  - {fileID: 2820567856418285626, guid: f030c6e7c9e68ce45af6d95e1e129ff4, type: 3}
-  - {fileID: 267798073151276951, guid: f6fdd0670b49ce4418a02fc9861e53db, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
-  - {fileID: 1917183546015697430, guid: dd8b3f1fa6a9ce64daf139108bb45cac, type: 3}
-  - {fileID: 8852036728638197512, guid: 22e39de6193292e4c988c273a13ad14f, type: 3}
-  - {fileID: 7580668613902669503, guid: cdb0811f325f1374a99eb39f70a37d47, type: 3}
-  - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
-  - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
 --- !u!114 &37329998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,12 +217,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTimeBtwSpawn: 8
+  decreaseTime: 0.2
+  minimumTime: 4
   enemySO:
   - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
-  - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
+  - {fileID: 11400000, guid: 44e5cb56bd85cac4f839db8100150f62, type: 2}
+  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
+  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
+  enemyLevel: 0
 --- !u!1 &69938974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2763,7 +2733,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1596179687}
-  - component: {fileID: 1596179688}
   - component: {fileID: 1596179689}
   m_Layer: 0
   m_Name: Spawner
@@ -2786,38 +2755,6 @@ Transform:
   m_Father: {fileID: 150729732}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1596179688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1596179686}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy:
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
-  - {fileID: 1700571169596728657, guid: dcccb62f48c55494a8b9dce25f972fdb, type: 3}
-  - {fileID: 156908040098660450, guid: 581750ff9c4aa894692f5888b184edfe, type: 3}
-  - {fileID: 5571081488016988622, guid: 40e4d2c1677e42c44ada2c625fb0da62, type: 3}
-  - {fileID: 1536820214587696530, guid: d5bcead016b8e0143966d89fc0a7cf59, type: 3}
-  - {fileID: 2820567856418285626, guid: f030c6e7c9e68ce45af6d95e1e129ff4, type: 3}
-  - {fileID: 267798073151276951, guid: f6fdd0670b49ce4418a02fc9861e53db, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
-  - {fileID: 1917183546015697430, guid: dd8b3f1fa6a9ce64daf139108bb45cac, type: 3}
-  - {fileID: 8852036728638197512, guid: 22e39de6193292e4c988c273a13ad14f, type: 3}
-  - {fileID: 7580668613902669503, guid: cdb0811f325f1374a99eb39f70a37d47, type: 3}
-  - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
-  - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
 --- !u!114 &1596179689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2830,12 +2767,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTimeBtwSpawn: 8
+  decreaseTime: 0.2
+  minimumTime: 4
   enemySO:
   - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
-  - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
+  - {fileID: 11400000, guid: 44e5cb56bd85cac4f839db8100150f62, type: 2}
+  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
+  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
+  enemyLevel: 0
 --- !u!1 &1613558319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2984,7 +2924,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638491172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3cb747f263c7ab4d92398ee386288d6, type: 3}
   m_Name: 
@@ -3956,7 +3896,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2037543324}
-  - component: {fileID: 2037543325}
   - component: {fileID: 2037543326}
   m_Layer: 0
   m_Name: Spawner (1)
@@ -3979,38 +3918,6 @@ Transform:
   m_Father: {fileID: 150729732}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2037543325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2037543323}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy:
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
-  - {fileID: 1700571169596728657, guid: dcccb62f48c55494a8b9dce25f972fdb, type: 3}
-  - {fileID: 156908040098660450, guid: 581750ff9c4aa894692f5888b184edfe, type: 3}
-  - {fileID: 5571081488016988622, guid: 40e4d2c1677e42c44ada2c625fb0da62, type: 3}
-  - {fileID: 1536820214587696530, guid: d5bcead016b8e0143966d89fc0a7cf59, type: 3}
-  - {fileID: 2820567856418285626, guid: f030c6e7c9e68ce45af6d95e1e129ff4, type: 3}
-  - {fileID: 267798073151276951, guid: f6fdd0670b49ce4418a02fc9861e53db, type: 3}
-  - {fileID: 2722854589257831072, guid: a096f7b7b44f3d448be47f8d3bb790ef, type: 3}
-  - {fileID: 9018867491823216938, guid: 8cca8b8798217474b85bfd4b4a7d87bf, type: 3}
-  - {fileID: 1917183546015697430, guid: dd8b3f1fa6a9ce64daf139108bb45cac, type: 3}
-  - {fileID: 8852036728638197512, guid: 22e39de6193292e4c988c273a13ad14f, type: 3}
-  - {fileID: 7580668613902669503, guid: cdb0811f325f1374a99eb39f70a37d47, type: 3}
-  - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
-  - {fileID: 4096994669102917010, guid: 0380096346812a14b87ea0c16961f1f5, type: 3}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
 --- !u!114 &2037543326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4023,12 +3930,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTimeBtwSpawn: 8
+  decreaseTime: 0.2
+  minimumTime: 4
   enemySO:
   - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
-  - {fileID: 11400000, guid: c7d5430dadef3cf4d8b11f3c531646c6, type: 2}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
+  - {fileID: 11400000, guid: 44e5cb56bd85cac4f839db8100150f62, type: 2}
+  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
+  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
+  enemyLevel: 0
 --- !u!4 &411089528782417303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4342686716423685378, guid: 629df76ec3eb536489f089d86e6ae74f, type: 3}

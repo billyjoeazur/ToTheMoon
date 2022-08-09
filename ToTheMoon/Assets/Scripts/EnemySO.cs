@@ -6,8 +6,14 @@ using UnityEngine;
 public class EnemySO : ScriptableObject
 {
     public GameObject enemyModel;
-    public GameObject coinModel;
-    public GameObject diamondModel;
+    public float maxHealth;
     public int coinToDrop;
     public int diamondToDrop;
+    public int scoreToAdd;
+    public int expToAdd;
+    
+    private void OnEnable() 
+    {
+        
+    }
 }
