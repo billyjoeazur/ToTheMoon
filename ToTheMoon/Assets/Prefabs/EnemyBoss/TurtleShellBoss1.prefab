@@ -1212,7 +1212,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5602247798572388698}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35c3e1c47f045754d924006e33be9325, type: 3}
   m_Name: 
@@ -1226,6 +1226,7 @@ MonoBehaviour:
   coinToDrop: 10
   scoreToAdd: 20
   xpToAdd: 20
+  scatterPrefab: {fileID: 0}
 --- !u!95 &5542465658943771966
 Animator:
   serializedVersion: 3

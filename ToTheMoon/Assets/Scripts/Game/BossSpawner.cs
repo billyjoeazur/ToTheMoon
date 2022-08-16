@@ -18,7 +18,6 @@ public class BossSpawner : MonoBehaviour
 
     private void Start() 
     {
-        
         SpawnBoss();
     }
     

@@ -11,9 +11,15 @@ public class EnemyProfile : MonoBehaviour
     public float currentHealth;
     public Slider healthSlider;
     public SpawnEnemy spawn;
+    public SpawnBoss spawnBoss;
     
     [NonSerialized]
     public UnityEvent<float> healthChangedEvent;
+    
+    private void Awake() 
+    {
+        spawnBoss = FindObjectOfType<SpawnBoss>();
+    }
     
     private void Start()
     {
@@ -38,16 +44,18 @@ public class EnemyProfile : MonoBehaviour
         healthSlider.GetComponent<HealthBar>().SetHealth(amount);
     }
     
-    int c = 0;
     public void DestroyEnemy()
     {
-        
-        // while (c < enemy[0].coinToDrop)
-        // {
-        //     GameObject coin = Instantiate(enemy[0].coinModel, transform.position, Quaternion.identity);
-        //     c++;
-        // }
-        spawn.DropCoin(transform.position);
+        if (this.gameObject.tag == "Boss")
+        {
+            spawnBoss.InstantiateBoss();
+            spawnBoss.DropCoin(transform.position);
+        }
+        else
+        {
+            spawn.DropCoin(transform.position); // drop coin
+        }
         Destroy(gameObject); // destroy this enemy
     }
+    
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344528242299148938}
-  - component: {fileID: 5317212261780122488}
+  - component: {fileID: 3693364847791911535}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -31,26 +31,25 @@ Transform:
   m_Father: {fileID: 2234526797323262112}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5317212261780122488
+--- !u!114 &3693364847791911535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987873128578179794}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
+  m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
+  startTimeBtwSpawn: 10
+  decreaseTime: 0.2
+  minimumTime: 4
+  enemySO:
+  - {fileID: 11400000, guid: 44e5cb56bd85cac4f839db8100150f62, type: 2}
+  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
+  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
 --- !u!1 &1069302853604446201
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +59,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1366993968418544058}
-  - component: {fileID: 3473719100968757414}
+  - component: {fileID: 7623643264072317291}
   m_Layer: 0
   m_Name: EnemySpawner (4)
   m_TagString: Untagged
@@ -82,26 +81,25 @@ Transform:
   m_Father: {fileID: 2234526797323262112}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3473719100968757414
+--- !u!114 &7623643264072317291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069302853604446201}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
+  m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
+  startTimeBtwSpawn: 10
+  decreaseTime: 0.2
+  minimumTime: 4
+  enemySO:
+  - {fileID: 11400000, guid: 44e5cb56bd85cac4f839db8100150f62, type: 2}
+  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
+  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
 --- !u!1 &2177010060624187328
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5656525902063545429}
-  - component: {fileID: 5419020350680540736}
+  - component: {fileID: 7373279339608718265}
   m_Layer: 0
   m_Name: EnemySpawner (1)
   m_TagString: Untagged
@@ -179,26 +177,25 @@ Transform:
   m_Father: {fileID: 2234526797323262112}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5419020350680540736
+--- !u!114 &7373279339608718265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2186882855426332629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
+  m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
+  startTimeBtwSpawn: 10
+  decreaseTime: 0.2
+  minimumTime: 4
+  enemySO:
+  - {fileID: 11400000, guid: 44e5cb56bd85cac4f839db8100150f62, type: 2}
+  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
+  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
 --- !u!1 &2238332102736361100
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,10 +206,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2234526797323262112}
   - component: {fileID: 8367599402812194054}
-  - component: {fileID: 2239406926429112736}
   - component: {fileID: 2179977818059138402}
   - component: {fileID: 2239406926429112748}
   - component: {fileID: 2239406926429112751}
+  - component: {fileID: 3207411091704232059}
   m_Layer: 0
   m_Name: SlimeBoss1
   m_TagString: Boss
@@ -257,28 +254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerationTime: 3
   maxSpeed: 4
---- !u!114 &2239406926429112736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2238332102736361100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c3e1c47f045754d924006e33be9325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instance: {fileID: 2239406926429112736}
-  coin: {fileID: 7707453744743389727, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
-  diamond: {fileID: 7019530144987985055, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
-  maxHealth: 200
-  currentHealth: 0
-  healthBar: {fileID: 2239406927421509775}
-  coinToDrop: 8
-  scoreToAdd: 16
-  xpToAdd: 16
-  bossLevel: 0
 --- !u!95 &2179977818059138402
 Animator:
   serializedVersion: 3
@@ -335,6 +310,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.45}
   serializedVersion: 2
   m_Radius: 0.53
+--- !u!114 &3207411091704232059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238332102736361100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c11265aafbf6b44a922b73a514778d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDamage: 50
 --- !u!1 &2238402952924339866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,7 +1117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6512836891869240463}
-  - component: {fileID: 8371978961179119565}
+  - component: {fileID: 6494800569281440729}
   m_Layer: 0
   m_Name: EnemySpawner (2)
   m_TagString: Untagged
@@ -1151,26 +1139,25 @@ Transform:
   m_Father: {fileID: 2234526797323262112}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8371978961179119565
+--- !u!114 &6494800569281440729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8539167662762001598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
+  m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
+  startTimeBtwSpawn: 10
+  decreaseTime: 0.2
+  minimumTime: 4
+  enemySO:
+  - {fileID: 11400000, guid: 44e5cb56bd85cac4f839db8100150f62, type: 2}
+  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
+  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
 --- !u!1 &8898137021723786046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1968016142452782722}
-  - component: {fileID: 3747439938436471217}
+  - component: {fileID: 907971280407393864}
   m_Layer: 0
   m_Name: EnemySpawner (3)
   m_TagString: Untagged
@@ -1202,23 +1189,22 @@ Transform:
   m_Father: {fileID: 2234526797323262112}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3747439938436471217
+--- !u!114 &907971280407393864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898137021723786046}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa1c563f3433d6d40937ff068d4db003, type: 3}
+  m_Script: {fileID: 11500000, guid: dcfcba380221ed54982e9bc581c258e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 6297414123997338947, guid: 444fce88258d7e24fb8e5b9ba8f0426c, type: 3}
-  - {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  - {fileID: 5056220695566228903, guid: 02e748f67106aa64d9469c85785889d3, type: 3}
-  startTimeBtwSpawn: 20
-  decreaseTime: 0.1
-  minimumTime: 18
+  startTimeBtwSpawn: 10
+  decreaseTime: 0.2
+  minimumTime: 4
+  enemySO:
+  - {fileID: 11400000, guid: 44e5cb56bd85cac4f839db8100150f62, type: 2}
+  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
+  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}

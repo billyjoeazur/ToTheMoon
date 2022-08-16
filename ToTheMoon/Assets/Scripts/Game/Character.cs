@@ -27,7 +27,7 @@ public class Character : MonoBehaviour
     void Awake()
     {
         maxHealth = playerSO.player.maxHealth;
-        PlayerPrefs.SetInt("BossLevel", 0);
+        
         PlayerPrefs.SetInt("CurrentScore", 0);
         PlayerPrefs.SetInt("CurrentXP", 0);
         Time.timeScale = 1f;

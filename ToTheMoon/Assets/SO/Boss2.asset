@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4984c09737ff47449806f90584ca5a8b, type: 3}
-  m_Name: Enemy2
+  m_Name: Boss2
   m_EditorClassIdentifier: 
-  enemyModel: {fileID: 5223655656659318120, guid: 91318df2cb36b8a4485cca23540cf588, type: 3}
-  maxHealth: 100
-  coinToDrop: 3
-  diamondToDrop: 0
-  scoreToAdd: 15
-  expToAdd: 7
+  enemyModel: {fileID: 2238332102736361100, guid: e0e9cd3d07c8ffa4aae39fc1fdb82e8e, type: 3}
+  maxHealth: 600
+  coinToDrop: 8
+  diamondToDrop: 2
+  scoreToAdd: 16
+  expToAdd: 16
+  isBoss: 1

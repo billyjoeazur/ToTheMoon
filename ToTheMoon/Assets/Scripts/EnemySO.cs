@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "EnemySO", menuName = "ToTheMoon/EnemySO", order = 0)]
 public class EnemySO : ScriptableObject
