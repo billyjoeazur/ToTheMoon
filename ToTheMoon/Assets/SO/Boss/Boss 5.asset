@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4984c09737ff47449806f90584ca5a8b, type: 3}
+  m_Name: Boss 5
+  m_EditorClassIdentifier: 
+  enemyModel: {fileID: 1144391786995383649, guid: 6b34bf72136f075489e10140d25cd9ab, type: 3}
+  maxHealth: 1000
+  coinToDrop: 10
+  diamondToDrop: 5

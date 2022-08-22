@@ -35,11 +35,11 @@ public class MenuUIManager : MonoBehaviour
     
     public void GameScene()
     {
-        gameObject.GetComponent<SceneController>().GoScene("Game");
+        gameObject.GetComponent<SceneController>().GameScene();
     }
     
     public void ShopScene()
     {
-        gameObject.GetComponent<SceneController>().GoScene("Shop");
+        gameObject.GetComponent<SceneController>().ShopScene();
     }
 }

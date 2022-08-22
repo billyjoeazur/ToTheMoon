@@ -7,27 +7,57 @@ using UnityEngine.Events;
 
 public class SceneController : MonoBehaviour
 {
-    [NonSerialized]
-    public UnityEvent<string> OnGoScene;
-    
-    public void GoScene(string sceneName)
+    public void MenuScene()
     {
-        StartCoroutine(Delay(4f, sceneName));
-        OnGoScene?.Invoke(sceneName);
+        StartCoroutine(MainMenu(4f));
     }
     
-    public IEnumerator Delay(float waitTime, string sceneName)
+    public void ShopScene()
     {
-        if (sceneName == "Menu")
-        {
-            PlayFabController.playFabController.GetPlayerData();
-            PlayFabController.playFabController.GetCoinDiamond();
-            PlayFabController.playFabController.GetHighestScore();
-        }
+        StartCoroutine(Shop(2f));
+    }
+    
+    public void GameScene()
+    {
+        StartCoroutine(Game(2f));
+    }
+    
+    public IEnumerator MainMenu(float waitTime)
+    {
         yield return new WaitForSeconds(waitTime);
-        print("waiting...");
-        SceneManager.LoadScene(sceneName);
+        PlayFabController.playFabController.GetPlayerData();
+        PlayFabController.playFabController.GetCoinDiamond();
+        PlayFabController.playFabController.GetHighestScore();
+        SceneManager.LoadScene("Menu");
     }
     
+    public IEnumerator Shop(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene("Shop");
+    }
     
-}
+    public IEnumerator Game(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene("Game");
+    }
+    
+    //EAAEWEtoY0ZBABAF18AUmdolVhAhFJWa7frtOgSNXoRJnFd7VW1ir8zBWCnyXmqOWZCpSCCfWWsZA1ZActaEQiXm4mapZAVt3tE2s5ZCPOvKZBGdN6ZAT2DvZBzPTZAaZC4ZBpmxe43hxep2tXGjA6eEWEgrnZBn7SZB2ZBdoZAeFz9pQZBEJzYoNd1ZBX2XcyipYXw7AEtZBW7v3sRobdtY3CyyHNID0ZAFn
+    
+    // public IEnumerator Delay(float waitTime, string sceneName)
+    // {
+    //     if (sceneName == "Menu")
+    //     {
+    //         PlayFabController.playFabController.GetPlayerData();
+    //         PlayFabController.playFabController.GetCoinDiamond();
+    //         PlayFabController.playFabController.GetHighestScore();
+    //     }
+    //     yield return new WaitForSeconds(waitTime);
+    //     print("waiting...");
+    //     SceneManager.LoadScene(sceneName);
+    // }
+    
+    
+    
+    }

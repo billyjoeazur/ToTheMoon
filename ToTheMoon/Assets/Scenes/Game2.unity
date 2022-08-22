@@ -957,6 +957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthDecreaseAmount: 10
+  uiManager: {fileID: 0}
 --- !u!50 &602223571
 Rigidbody2D:
   serializedVersion: 4
@@ -1400,7 +1401,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984141828}
-  - component: {fileID: 984141827}
   m_Layer: 0
   m_Name: GameUIManager
   m_TagString: Untagged
@@ -1408,50 +1408,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &984141827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984141826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85a3cbcdb44b27446a4067cf0de9e365, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 1767203548}
-  healthGradient:
-    serializedVersion: 2
-    key0: {r: 0.7607844, g: 0.08235294, b: 0.1137255, a: 1}
-    key1: {r: 1, g: 0.93846154, b: 0, a: 1}
-    key2: {r: 0, g: 1, b: 0.0009315014, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 21823
-    ctime1: 43646
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  healthFill: {fileID: 961739696}
-  playerSO: {fileID: 11400000, guid: 84371db0efc97fc4092e8373af575b33, type: 2}
 --- !u!4 &984141828
 Transform:
   m_ObjectHideFlags: 0

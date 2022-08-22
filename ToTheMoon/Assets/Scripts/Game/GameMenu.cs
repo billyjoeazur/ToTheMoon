@@ -74,12 +74,12 @@ public class GameMenu : MonoBehaviour
     public void PlayAgain()
     {
         Time.timeScale = 1f;
-        this.gameObject.GetComponent<SceneController>().GoScene("Game");
+        this.gameObject.GetComponent<SceneController>().GameScene();
     }
 
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        this.gameObject.GetComponent<SceneController>().GoScene("Menu");
+        this.gameObject.GetComponent<SceneController>().MenuScene();
     }
 }

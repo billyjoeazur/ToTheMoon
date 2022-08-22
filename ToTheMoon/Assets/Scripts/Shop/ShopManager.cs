@@ -98,6 +98,6 @@ public class ShopManager : MonoBehaviour
     
     public void Back()
     {
-        gameObject.GetComponent<SceneController>().GoScene("Menu");
+        gameObject.GetComponent<SceneController>().MenuScene();
     }
 }

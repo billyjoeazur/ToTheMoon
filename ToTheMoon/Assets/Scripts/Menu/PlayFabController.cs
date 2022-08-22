@@ -92,7 +92,7 @@ public class PlayFabController : MonoBehaviour
 		Debug.Log("Displayname added! " + result.DisplayName);
 		playerSO.player.displayname = result.DisplayName;
 		SavePlayerData();
-		GameObject.Find("FacebookLogin").GetComponent<SceneController>().GoScene("Menu");
+		GameObject.Find("FacebookLogin").GetComponent<SceneController>().MenuScene();
 	}
 	
 	private void OnErrorDisplayname(PlayFabError error)

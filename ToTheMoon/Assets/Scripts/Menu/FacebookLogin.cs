@@ -111,7 +111,7 @@ public class FacebookLogin : MonoBehaviour
 		else
 		{
 			Debug.Log("old player login!");
-			gameObject.GetComponent<SceneController>().GoScene("Menu");
+			gameObject.GetComponent<SceneController>().MenuScene();
 		}
 		
 	}

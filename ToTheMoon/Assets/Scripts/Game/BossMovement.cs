@@ -26,7 +26,6 @@ public class BossMovement : MonoBehaviour
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -23.1f, 23.1f), Mathf.Clamp(transform.position.y, 17.5f, 40.5f), transform.position.z);
         timeLeft -= Time.deltaTime;
 
-
         if (timeLeft <= 0)
         {
             movement = new Vector2(Random.Range(-23.1f, 23.1f), Random.Range(-17.5f, 40.5f));

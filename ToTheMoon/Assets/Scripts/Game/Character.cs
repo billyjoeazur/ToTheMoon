@@ -32,9 +32,9 @@ public class Character : MonoBehaviour
         PlayerPrefs.SetInt("CurrentXP", 0);
         Time.timeScale = 1f;
         // spaceshipsObj[playerSO.player.equipedSpaceship].SetActive(true);
-        spaceshipsObj[0].SetActive(true);
+        //spaceshipsObj[0].SetActive(true);
         // PlayerPrefs.SetInt("CurrentSpaceship", playerSO.player.equipedSpaceship);
-        PlayerPrefs.SetInt("CurrentSpaceship", 0);
+        //PlayerPrefs.SetInt("CurrentSpaceship", 0);
     }
 
     void Start()
