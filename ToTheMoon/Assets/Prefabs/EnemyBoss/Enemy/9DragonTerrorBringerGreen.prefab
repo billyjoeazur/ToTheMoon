@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 5168714210191431509}
   - component: {fileID: -5097052891999619863}
   m_Layer: 0
-  m_Name: 13DragonTerrorBringerGreen
+  m_Name: 9DragonTerrorBringerGreen
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

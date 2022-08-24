@@ -50,10 +50,20 @@ public class SpawnBoss : MonoBehaviour
         PlayerPrefs.SetInt("BossLevel",  level);
     }
     
-    public void DropCoin(Vector3 transform)
+    public void DropCoinBoss(Vector3 transform)
     {
         int c = 0;
         while (c < enemySO[PlayerPrefs.GetInt("BossLevel") - 1].coinToDrop)
+        {
+            GameObject coin = Instantiate(coinModel, transform, Quaternion.identity);
+            c++;
+        }
+    }
+    
+    public void DropCoin(Vector3 transform)
+    {
+        int c = 0;
+        while (c < PlayerPrefs.GetInt("BossLevel") + 1)
         {
             GameObject coin = Instantiate(coinModel, transform, Quaternion.identity);
             c++;

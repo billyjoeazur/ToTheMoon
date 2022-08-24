@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4984c09737ff47449806f90584ca5a8b, type: 3}
   m_Name: Boss 14
   m_EditorClassIdentifier: 
-  enemyModel: {fileID: 2013856818025284040, guid: f8eab5d3c45ee6445b3ca01f25e16187, type: 3}
+  enemyModel: {fileID: 1693272325492211703, guid: ce2f105d3354f264bb383ececd6df522, type: 3}
   maxHealth: 1900
   coinToDrop: 19
   diamondToDrop: 14

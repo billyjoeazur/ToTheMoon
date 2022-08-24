@@ -1255,11 +1255,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6297414123997364579}
-  - component: {fileID: 2657077756789601804}
-  - component: {fileID: 6036663070550636786}
   - component: {fileID: 6297414124006731395}
   - component: {fileID: 21744364663203880}
   - component: {fileID: 8050785001689676743}
+  - component: {fileID: 2657077756789601804}
+  - component: {fileID: 6036663070550636786}
   m_Layer: 0
   m_Name: 1BeholderPolyart
   m_TagString: Enemy
@@ -1284,34 +1284,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &2657077756789601804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6297414123997338947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b923492bb459f74eafbb0bb9408a711, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  accelerationTime: 2
-  maxSpeed: 5
-  downSpeed: 10
---- !u!114 &6036663070550636786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6297414123997338947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c11265aafbf6b44a922b73a514778d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletDamage: 50
 --- !u!95 &6297414124006731395
 Animator:
   serializedVersion: 3
@@ -1368,6 +1340,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 2
+--- !u!114 &2657077756789601804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297414123997338947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b923492bb459f74eafbb0bb9408a711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelerationTime: 2
+  maxSpeed: 5
+  downSpeed: 10
+--- !u!114 &6036663070550636786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6297414123997338947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c11265aafbf6b44a922b73a514778d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6297414123997338949
 GameObject:
   m_ObjectHideFlags: 0

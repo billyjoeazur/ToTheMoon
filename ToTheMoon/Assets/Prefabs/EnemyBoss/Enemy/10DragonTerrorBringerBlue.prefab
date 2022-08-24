@@ -2579,7 +2579,7 @@ GameObject:
   - component: {fileID: 6075856458402402018}
   - component: {fileID: 3851416551624033125}
   m_Layer: 0
-  m_Name: 14DragonTerrorBringerBlue
+  m_Name: 10DragonTerrorBringerBlue
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

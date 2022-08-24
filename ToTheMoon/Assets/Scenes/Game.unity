@@ -240,8 +240,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 22b66f17669cf4943b33019f2bc4fa11, type: 2}
   - {fileID: 11400000, guid: 02f0f52ac1d051d4ba9b90193c904cbe, type: 2}
   - {fileID: 11400000, guid: 02f0f52ac1d051d4ba9b90193c904cbe, type: 2}
-  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
-  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
 --- !u!1 &69938974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,7 +1882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47705b715270d66449908903d9c86b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4
+  movementSpeed: 3
 --- !u!114 &818880542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2955,8 +2953,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 22b66f17669cf4943b33019f2bc4fa11, type: 2}
   - {fileID: 11400000, guid: 02f0f52ac1d051d4ba9b90193c904cbe, type: 2}
   - {fileID: 11400000, guid: 02f0f52ac1d051d4ba9b90193c904cbe, type: 2}
-  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
-  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
 --- !u!1 &1613558319
 GameObject:
   m_ObjectHideFlags: 0
@@ -4124,8 +4120,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 22b66f17669cf4943b33019f2bc4fa11, type: 2}
   - {fileID: 11400000, guid: 02f0f52ac1d051d4ba9b90193c904cbe, type: 2}
   - {fileID: 11400000, guid: 02f0f52ac1d051d4ba9b90193c904cbe, type: 2}
-  coinModel: {fileID: 7707453744743389722, guid: a65246f994bb62648a0f03c42fe9c244, type: 3}
-  diamondModel: {fileID: 8401728227819521734, guid: 526099ce515328a4185ae6dba9545bd3, type: 3}
 --- !u!4 &411089528782417303 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4342686716423685378, guid: 629df76ec3eb536489f089d86e6ae74f, type: 3}

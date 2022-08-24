@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4984c09737ff47449806f90584ca5a8b, type: 3}
   m_Name: Enemy9
   m_EditorClassIdentifier: 
-  enemyModel: {fileID: 267798073151276951, guid: f6fdd0670b49ce4418a02fc9861e53db, type: 3}
+  enemyModel: {fileID: 8852036728638197512, guid: 22e39de6193292e4c988c273a13ad14f, type: 3}
   maxHealth: 160
   coinToDrop: 8
   diamondToDrop: 0
