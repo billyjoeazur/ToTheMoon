@@ -27,16 +27,15 @@ public class EnemyProfile : MonoBehaviour
     {
         if (this.gameObject.tag == "Boss")
         {
-            maxHealth = 500 + ((PlayerPrefs.GetInt("BossLevel") + 1) * 100 );
+            maxHealth = 400 + ((PlayerPrefs.GetInt("BossLevel") + 1) * 100 ); //Add boss HP every level
         }
         else
-            maxHealth = 75 + ((PlayerPrefs.GetInt("BossLevel") + 1) * 25 );
+            maxHealth = 75 + ((PlayerPrefs.GetInt("BossLevel") + 1) * 25 ); //Add monsters HP every level
         
         healthSlider = this.gameObject.transform.GetChild(0).GetChild(0).GetComponent<Slider>();
         currentHealth = maxHealth;
         healthSlider.GetComponent<HealthBar>().SetMaxHealth(maxHealth);
         healthSlider.GetComponent<HealthBar>().SetHealth(currentHealth);
-        print(maxHealth);
     }
     
     public void DecreaseHealth(float amount)
@@ -64,7 +63,6 @@ public class EnemyProfile : MonoBehaviour
         }
         else
         {
-            //spawn.DropCoin(transform.position); // drop coin
             spawnBoss.DropCoin(transform.position);
         }
         int score = UnityEngine.Random.Range(4, 7);

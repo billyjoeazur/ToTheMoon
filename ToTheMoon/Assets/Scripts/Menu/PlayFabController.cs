@@ -16,6 +16,9 @@ public class PlayFabController : MonoBehaviour
 	public ShopSO shopSO;
 	public Player playerRegister = new Player("", 100, 1, 0, 100, 0);
 	public List<Spaceship> spaceshipsRegister = new List<Spaceship>();
+	public List<Essentials> essentialsRegister = new List<Essentials>();
+	public List<Extras> extrasRegister = new List<Extras>();
+	//public Shop shopRegister = new Shop(spaceshipsRegister, essentialsRegister, extrasRegister); //yung function lagay dito boi
 	public Sprite avatar;
 	
 	private void Awake()
@@ -46,10 +49,12 @@ public class PlayFabController : MonoBehaviour
 	private void OnDataRecieved(GetUserDataResult result)
 	{
 		Debug.Log("Received user data!");
-		if (result.Data != null && result.Data.ContainsKey("Player") && result.Data.ContainsKey("Spaceships"))
+		if (result.Data != null && result.Data.ContainsKey("Player") && result.Data.ContainsKey("Spaceships") && result.Data.ContainsKey("Essentials") && result.Data.ContainsKey("Extras"))
 		{
 			playerSO.PlayerDataUpdate(JsonConvert.DeserializeObject<Player>(result.Data["Player"].Value));
 			shopSO.SpaceshipUpdate(JsonConvert.DeserializeObject<List<Spaceship>>(result.Data["Spaceships"].Value));
+			shopSO.EssentialUpdate(JsonConvert.DeserializeObject<List<Essentials>>(result.Data["Essentials"].Value));
+			shopSO.ExtraUpdate(JsonConvert.DeserializeObject<List<Extras>>(result.Data["Extras"].Value));
 		}
 		else
 			Debug.Log("Player data not complete!");
@@ -63,11 +68,15 @@ public class PlayFabController : MonoBehaviour
 	public void RegisterPlayerData()
 	{
 		AddSpaceshipBaseData();
+		AddEssentials();
+		AddExtras();
 		var requestUserData = new UpdateUserDataRequest
 		{
 			Data = new Dictionary<string, string> {
 				{"Player", JsonConvert.SerializeObject(playerRegister) },
-				{"Spaceships", JsonConvert.SerializeObject(spaceshipsRegister) }
+				{"Spaceships", JsonConvert.SerializeObject(spaceshipsRegister) },
+				{"Essentials", JsonConvert.SerializeObject(essentialsRegister) },
+				{"Extras", JsonConvert.SerializeObject(extrasRegister) }
 			}
 		};
 		PlayFabClientAPI.UpdateUserData(requestUserData, OnDataRegister, OnError);
@@ -110,7 +119,9 @@ public class PlayFabController : MonoBehaviour
 		{
 			Data = new Dictionary<string, string> {
 				{"Player", JsonConvert.SerializeObject(playerSO.player) },
-				{"Spaceships", JsonConvert.SerializeObject(shopSO.spaceships) } 
+				{"Spaceships", JsonConvert.SerializeObject(shopSO.spaceships) },
+				{"Essentials", JsonConvert.SerializeObject(shopSO.essentials) },
+				{"Extras", JsonConvert.SerializeObject(shopSO.extras) }
 			}
 		};
 		PlayFabClientAPI.UpdateUserData(requestUserData, OnDataSave, OnError);
@@ -131,7 +142,7 @@ public class PlayFabController : MonoBehaviour
 	{
 		result.VirtualCurrency.TryGetValue("CO", out shopSO._coins);
 		result.VirtualCurrency.TryGetValue("DI", out shopSO._diamonds);
-		print("getcoindiamondmethod");
+		//print("getcoindiamondmethod");
 	}
 
 	public void SetPlayerHighestScore(int score)
@@ -223,6 +234,24 @@ public class PlayFabController : MonoBehaviour
         spaceshipsRegister.Add(new Spaceship("HMS-Marites", "Her Majesty's Ship Marites", 0, 25));
         spaceshipsRegister.Add(new Spaceship("ISS-Digs", "Imperial Spaceship Digs", 0, 30));
     }
+	
+	public void AddEssentials()
+	{
+		essentialsRegister.Add(new Essentials("More-HP", "Add Max Health", 0, 25));
+		essentialsRegister.Add(new Essentials("Regen-HP", "Health Regeneration", 0, 50));
+		essentialsRegister.Add(new Essentials("Shield", "Shield", 0, 75));
+		essentialsRegister.Add(new Essentials("G-Multiplier", "Gold Multiplier", 0, 100));
+		essentialsRegister.Add(new Essentials("D-Drop", "Diamond Drop Chance", 0, 125));
+		
+	}
+	
+	public void AddExtras()
+	{
+		extrasRegister.Add(new Extras("H-Missiles", "Homing Missiles", 0, 20));
+		extrasRegister.Add(new Extras("B-Missiles", "Bouncing Missiles", 0, 30));
+		extrasRegister.Add(new Extras("E-Missiles", "Explosive Missiles", 0, 40));
+		
+	}
 	
 	#endregion
 

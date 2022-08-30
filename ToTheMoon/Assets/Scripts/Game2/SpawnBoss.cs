@@ -10,6 +10,7 @@ public class SpawnBoss : MonoBehaviour
     public GameObject coinModel;
     public GameObject diamondModel;
     public GameObject spawnEnemy;
+    int diamondDropChance = 50;
     
     private void Awake() 
     {
@@ -57,6 +58,13 @@ public class SpawnBoss : MonoBehaviour
         {
             GameObject coin = Instantiate(coinModel, transform, Quaternion.identity);
             c++;
+        }
+        
+        int d = UnityEngine.Random.Range(1, 100);
+        if (d < diamondDropChance)
+        {
+            print(d);
+            GameObject diamond = Instantiate(diamondModel, transform, Quaternion.identity);
         }
     }
     
