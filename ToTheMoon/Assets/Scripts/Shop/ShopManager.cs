@@ -167,7 +167,28 @@ public class ShopManager : MonoBehaviour
                 PlayFabController.playFabController.SubtractCoin(shopSO.essentials[btnNo].currentPrice);
                 shopSO.essentials[btnNo].currentPrice += shopSO.essentials[btnNo].currentPrice * 3;
                 shopSO.essentials[btnNo].level++;
-                //playerSO.player.equipedSpaceship = btnNo;
+                if (btnNo == 0)
+                {
+                    playerSO.moreHP += 10f;
+                }
+                else if(btnNo == 1)
+                {
+                    playerSO.regenHP += .2f;
+                }
+                else if(btnNo == 2)
+                {
+                    playerSO.shieldCD -= 2f;
+                }
+                else if(btnNo == 3)
+                {
+                    playerSO.goldMultiplier += 1;
+                }
+                else if(btnNo == 4)
+                {
+                    playerSO.dropChance += 2;
+                }
+                
+                
                 PlayFabController.playFabController.SavePlayerData();
                 for (int i = 0; i < shopSO.essentials.Count; i++)
                 {

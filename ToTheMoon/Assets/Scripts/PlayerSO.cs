@@ -10,8 +10,14 @@ public class PlayerSO : ScriptableObject
 {
     public Player player;
     public int highestScore;
-    [NonSerialized]
-    public UnityEvent<Player> OnPlayerDataUpdate;
+    
+    public float moreHP;
+    public float regenHP;
+    public float shieldCD = 20f; //cooldown
+    public int goldMultiplier;
+    public int dropChance;
+    
+    [NonSerialized] public UnityEvent<Player> OnPlayerDataUpdate;
     
     private void OnEnable() 
     {
@@ -19,6 +25,7 @@ public class PlayerSO : ScriptableObject
         {
             OnPlayerDataUpdate = new UnityEvent<Player>();
         }
+        
     }
     
     public void PlayerDataUpdate(Player newData)

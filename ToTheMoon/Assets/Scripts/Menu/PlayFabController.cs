@@ -18,7 +18,6 @@ public class PlayFabController : MonoBehaviour
 	public List<Spaceship> spaceshipsRegister = new List<Spaceship>();
 	public List<Essentials> essentialsRegister = new List<Essentials>();
 	public List<Extras> extrasRegister = new List<Extras>();
-	//public Shop shopRegister = new Shop(spaceshipsRegister, essentialsRegister, extrasRegister); //yung function lagay dito boi
 	public Sprite avatar;
 	
 	private void Awake()
