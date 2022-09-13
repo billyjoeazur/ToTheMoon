@@ -11,6 +11,9 @@ public class CharacterShoot : MonoBehaviour
     float Timer = 2;
     
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private GameObject missile;
+    [HideInInspector] public float missileTimer = 4f;
+    bool canShootMissile = true;
     
     private void Awake() 
     {
@@ -20,8 +23,15 @@ public class CharacterShoot : MonoBehaviour
 
     void Update()
     {
+        
+        if (canShootMissile)
+        {
+            StartCoroutine(ShootMissile(missileTimer));
+            canShootMissile = false;
+        }
+        
+        
         Timer -= Time.deltaTime;
-
         if (Timer <= 0f)
         {
             //kind of bullets
@@ -71,9 +81,15 @@ public class CharacterShoot : MonoBehaviour
                 BulletShower shower = Instantiate(showerPrefab, transform.position, Quaternion.identity);
                 Timer = 0.1f;
             }
-
-
+            
         }
-
+    }
+    
+    public IEnumerator ShootMissile(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        GameObject obj = Instantiate(missile);
+        obj.transform.position = spawnspot.position;
+        canShootMissile = true;
     }
 }

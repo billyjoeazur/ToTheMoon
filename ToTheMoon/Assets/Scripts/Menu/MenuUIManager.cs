@@ -42,4 +42,10 @@ public class MenuUIManager : MonoBehaviour
     {
         gameObject.GetComponent<SceneController>().ShopScene();
     }
+    
+    public void OpenChest()
+    {
+        PlayFabController.playFabController.GiveBasicChest();
+        print("Chest Click");
+    }
 }

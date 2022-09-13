@@ -10,6 +10,7 @@ public class EnemyTakeDamage : MonoBehaviour
     private float bulletSlowDamage = 15f;
     private float bulletPenetrateDamage = 15f;
     private float bulletScatterDamage = 15f;
+    private float normalMissileDamage = 100f;
     
     private void OnTriggerEnter2D(Collider2D other) 
     {
@@ -59,6 +60,12 @@ public class EnemyTakeDamage : MonoBehaviour
                 }
             }
             
+        }
+        
+        if (other.CompareTag("NormalMissile"))
+        {
+            this.gameObject.GetComponent<EnemyProfile>().DecreaseHealth(normalMissileDamage);
+            Destroy(other.gameObject);  //destroy bullet
         }
         
     }

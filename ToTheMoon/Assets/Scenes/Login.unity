@@ -1463,6 +1463,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayFabController
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6085743324514591934, guid: f54ac11a10a7d4740b7b031f8483826e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f54ac11a10a7d4740b7b031f8483826e, type: 3}

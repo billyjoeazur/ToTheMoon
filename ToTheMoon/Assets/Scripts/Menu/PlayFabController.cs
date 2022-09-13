@@ -19,6 +19,7 @@ public class PlayFabController : MonoBehaviour
 	public List<Essentials> essentialsRegister = new List<Essentials>();
 	public List<Extras> extrasRegister = new List<Extras>();
 	public Sprite avatar;
+	public GetPlayerCombinedInfoRequestParams info;
 	
 	private void Awake()
 	{
@@ -222,6 +223,20 @@ public class PlayFabController : MonoBehaviour
 	{
 		Debug.Log("Diamond Added");
 		shopSO._diamonds = result.Balance;
+	}
+	
+	public void GiveBasicChest()
+	{
+		PurchaseItemRequest request = new PurchaseItemRequest();
+		request.CatalogVersion = "Items";
+		request.ItemId = "BasicChest";
+		request.VirtualCurrency = "CO";
+		request.Price = 0;
+		PlayFabClientAPI.PurchaseItem(request, result => { 
+			
+		}, error => {
+			
+		});
 	}
 	
 	public void AddSpaceshipBaseData()
