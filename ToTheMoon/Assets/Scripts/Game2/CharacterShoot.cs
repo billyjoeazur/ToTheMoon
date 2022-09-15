@@ -9,10 +9,11 @@ public class CharacterShoot : MonoBehaviour
     [SerializeField] BulletShower showerPrefab;
     public BulletScatter scatter;
     float Timer = 2;
-    
     [SerializeField] private GameManager gameManager;
+    
     [SerializeField] private GameObject missile;
     [HideInInspector] public float missileTimer = 4f;
+    [HideInInspector] public float shieldTimer = 10f;
     bool canShootMissile = true;
     
     private void Awake() 
@@ -91,5 +92,21 @@ public class CharacterShoot : MonoBehaviour
         GameObject obj = Instantiate(missile);
         obj.transform.position = spawnspot.position;
         canShootMissile = true;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") || other.CompareTag("EnemyBullet"))
+        {
+            Destroy(other.gameObject);  //destroy enemy or enemy bullet
+            this.gameObject.GetComponent<CircleCollider2D>().enabled = false; // remove shield
+            StartCoroutine(EnableShield(shieldTimer)); //cool down shield
+        }
+    }
+    
+    public IEnumerator EnableShield(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        this.gameObject.GetComponent<CircleCollider2D>().enabled = true; // activate shield
     }
 }

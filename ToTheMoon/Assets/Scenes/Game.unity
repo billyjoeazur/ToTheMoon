@@ -178,6 +178,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   missile: {fileID: 0}
   missileTimer: 4
+  shieldTimer: 10
 --- !u!1 &37329995
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +373,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   missile: {fileID: 0}
   missileTimer: 4
+  shieldTimer: 10
 --- !u!1 &111142748
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1001,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   missile: {fileID: 0}
   missileTimer: 4
+  shieldTimer: 10
 --- !u!1 &399895059
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 399895060}
   - component: {fileID: 399895061}
+  - component: {fileID: 399895062}
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
@@ -1054,6 +1058,23 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   missile: {fileID: 8179395157212022029, guid: f956c867fd32ac94497008b1846b0c1b, type: 3}
   missileTimer: 4
+  shieldTimer: 10
+--- !u!58 &399895062
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 399895059}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -3.52}
+  serializedVersion: 2
+  m_Radius: 7
 --- !u!1 &415423104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,7 +1869,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818880535}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2369,6 +2390,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   missile: {fileID: 0}
   missileTimer: 4
+  shieldTimer: 10
 --- !u!1 &1077684957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,6 +2765,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   missile: {fileID: 0}
   missileTimer: 4
+  shieldTimer: 10
 --- !u!1 &1556250826
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,6 +3216,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   missile: {fileID: 0}
   missileTimer: 4
+  shieldTimer: 10
 --- !u!1 &1691416214
 GameObject:
   m_ObjectHideFlags: 0

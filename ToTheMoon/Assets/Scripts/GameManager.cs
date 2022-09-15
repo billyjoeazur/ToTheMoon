@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public PlayerSO playerSO;
     public float currentHealth;
+    float autoHeal = 1f;
     [HideInInspector] public int coin, diamond, score, expi;
     private bool isNewHighestScore = false;
     public event Action<float> OnHealthChanged;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         OnDiamondChanged?.Invoke(diamond);
         OnScoreChanged?.Invoke(score);
         OnExpiChanged?.Invoke(expi);
+        InvokeRepeating("AutoHealPlayer", 1f, 1f);
     }
     
     public void DecreaseHealth(float amount)
@@ -95,6 +97,15 @@ public class GameManager : MonoBehaviour
         playerSO.player.experience += expi;
         playerSO.player.GetExperienceToLevelUp(playerSO.player); // add the level and experience
         PlayFabController.playFabController.SavePlayerData();
+    }
+    
+    private void AutoHealPlayer()
+    {
+        if(currentHealth < playerSO.player.maxHealth)
+        {
+            currentHealth += autoHeal;
+            OnHealthChanged?.Invoke(currentHealth);
+        }
     }
     
     public void PlayAgain()
