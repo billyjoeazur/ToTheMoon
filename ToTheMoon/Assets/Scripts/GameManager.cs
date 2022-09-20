@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public PlayerSO playerSO;
     public float currentHealth;
-    float autoHeal = 1f;
-    [HideInInspector] public int coin, diamond, score, expi;
+    
+    [HideInInspector] public int coin, diamond, score, expi, diamondDropChance;
     private bool isNewHighestScore = false;
     public event Action<float> OnHealthChanged;
     public event Action<int> OnCoinChanged;
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         currentHealth = playerSO.player.maxHealth;
+        diamondDropChance = playerSO.diamondDropChance;
         playerGO.transform.GetChild(playerSO.player.equipedSpaceship).gameObject.SetActive(true);
         coin = 0;
         diamond = 0;
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
     
     public void AddCoin(int amount)
     {
+        amount *= playerSO.goldMultiplier;
         coin += amount;
         OnCoinChanged?.Invoke(coin);
     }
@@ -103,7 +105,7 @@ public class GameManager : MonoBehaviour
     {
         if(currentHealth < playerSO.player.maxHealth)
         {
-            currentHealth += autoHeal;
+            currentHealth += playerSO.regenHP;
             OnHealthChanged?.Invoke(currentHealth);
         }
     }

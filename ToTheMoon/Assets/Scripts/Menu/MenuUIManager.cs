@@ -20,6 +20,7 @@ public class MenuUIManager : MonoBehaviour
     
     void Start()
     {
+        Time.timeScale = 1f;
         xpNeedToLevelUpText.text = playerSO.player.GetExperienceToLevelUp(playerSO.player).ToString();
         lvlText.text = "Level: " + playerSO.player.level.ToString();
         highscore.text = playerSO.highestScore.ToString();

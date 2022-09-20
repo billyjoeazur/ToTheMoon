@@ -10,16 +10,18 @@ public class SpawnBoss : MonoBehaviour
     public GameObject coinModel;
     public GameObject diamondModel;
     public GameObject spawnEnemy;
-    int diamondDropChance = 50;
+    public GameManager gameManager;
     
     private void Awake() 
     {
         PlayerPrefs.SetInt("BossLevel", 0);
+        gameManager = FindObjectOfType<GameManager>();
     }
     
     void Start()
     {
         InstantiateBoss();
+        
     }
     
     public void InstantiateBoss()
@@ -61,9 +63,8 @@ public class SpawnBoss : MonoBehaviour
         }
         
         int d = UnityEngine.Random.Range(1, 100);
-        if (d < diamondDropChance)
+        if (d < gameManager.diamondDropChance)
         {
-            print(d);
             GameObject diamond = Instantiate(diamondModel, transform, Quaternion.identity);
         }
     }

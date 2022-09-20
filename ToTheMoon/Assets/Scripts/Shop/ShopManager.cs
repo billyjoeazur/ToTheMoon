@@ -185,7 +185,7 @@ public class ShopManager : MonoBehaviour
                 }
                 else if(btnNo == 4)
                 {
-                    playerSO.dropChance += 2;
+                    playerSO.diamondDropChance += 2;
                 }
                 
                 

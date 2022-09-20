@@ -30,7 +30,7 @@ public class PlayerTrigger : MonoBehaviour
         }
         else if (other.CompareTag("Coin"))
         {
-            gameManager.AddCoin(5);
+            gameManager.AddCoin(1);
             Destroy(other.gameObject);
         }
         else if (other.CompareTag("Diamond"))

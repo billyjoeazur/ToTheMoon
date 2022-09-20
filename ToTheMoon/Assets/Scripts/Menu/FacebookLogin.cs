@@ -102,6 +102,7 @@ public class FacebookLogin : MonoBehaviour
 
 	private void OnGetDisplayName(GetPlayerProfileResult result)
 	{
+		Time.timeScale = 1f;
 		if (string.IsNullOrEmpty(result.PlayerProfile.DisplayName)) //Check if it is a new playfab player.
 		{
 			Debug.Log("New player registered!");

@@ -15,7 +15,7 @@ public class PlayerSO : ScriptableObject
     public float regenHP;
     public float shieldCD = 20f; //cooldown
     public int goldMultiplier;
-    public int dropChance;
+    public int diamondDropChance;
     
     [NonSerialized] public UnityEvent<Player> OnPlayerDataUpdate;
     
