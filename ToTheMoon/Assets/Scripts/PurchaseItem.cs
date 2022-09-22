@@ -7,21 +7,37 @@ using System.Collections.Generic;
 
 public class PurchaseItem : MonoBehaviour
 {
+    public List<Inventory> inventory;
+    private void Start() 
+    {
+        
+    }
+    
     public void BuyItemInPlayFab()
     {
-        string itemId = "BonusHP1";
-        int quantity = 1;
-        PlayFabClientAPI.PurchaseItem(new PurchaseItemRequest()
-        {
-            ItemId = itemId,
-            //Quantity = quantity,
-            VirtualCurrency = "CO"
-        }, (result) => 
-        {
-            Debug.Log("Successfully purchased item");
-        }, (error) => 
-        {
-            Debug.LogError("Failed to purchase item: " + error.GenerateErrorReport());
+        PurchaseItemRequest request = new PurchaseItemRequest();
+        request.CatalogVersion = "Items";
+        request.ItemId = "BonusHP1";
+        request.VirtualCurrency = "CO";
+        request.Price = 100;
+        
+        PlayFabClientAPI.PurchaseItem(request, result => {
+        }, error => {
+            Debug.Log(error.ErrorMessage);
+        });
+    }
+    
+    public void GetInventory()
+    {
+        GetUserInventoryRequest request = new GetUserInventoryRequest();
+        PlayFabClientAPI.GetUserInventory(request, result => {
+            List<ItemInstance> myItems = result.Inventory;
+            foreach (var item in myItems)
+            {
+                inventory.Add(new Inventory(item.ItemId, item.DisplayName));
+            }
+        }, error => {
+            
         });
     }
 }

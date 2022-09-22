@@ -9,7 +9,7 @@ public class ShopTemplate : MonoBehaviour
     public Text descriptionTxt;
     public Text levelTxt;
     public Text currentPriceTxt;
-    public ShopMan man;
+    public ShopManager man;
     
     void Update()
     {
@@ -18,7 +18,7 @@ public class ShopTemplate : MonoBehaviour
     
     void OnEnable()
     {
-        man = FindObjectOfType<ShopMan>();
+        man = FindObjectOfType<ShopManager>();
         man.OnHeaderButtonPress += HideAllModels;
     }
     
